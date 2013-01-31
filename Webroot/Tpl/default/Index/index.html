@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/logo.ico" type="image/x-icon" />
+    <title>致极国际|奢侈品牌批发|意大利时尚批发|国际时尚品牌代理加盟</title>
+	<meta name="keywords" content="专业奢侈品批发,设计公司,奢侈品牌批发,意大利时尚批发,国际时尚品牌代理加盟">
+    <meta name="description" content="专业奢侈品批发,设计公司,奢侈品牌批发,意大利时尚批发,国际时尚品牌代理加盟">
+    <link rel="stylesheet" type="text/css" href="Webroot/Tpl/default/css/style.css" />
+    
+    <style type="text/css">
+	    .lang a:hover{color:#fff;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="header">
+	    <div class="logo">
+			<img src="Webroot/Tpl/default/images/logo_index.png" />
+		</div>
+	</div>
+	<div id="content">
+	    <div id="viewport" style="width: 1280px; height: 768px; ">
+			<img src="Webroot/Tpl/default/images/01.jpg" >
+			<img src="Webroot/Tpl/default/images/02.jpg">
+			<img src="Webroot/Tpl/default/images/03.jpg">
+		</div>
+		<div class="rcontent">
+		    <div class="lang">
+			    <a href="" class="en">&gt;&gt;English</a><a href="" class="en">&gt;&gt;简体中文</a>
+			</div>
+			<div class="clear"></div>
+			<div class="top"><img src="Webroot/Tpl/default/images/btn_bg03.jpg" width="321" height="73"></div>
+            <div class="middle">
+                <div class="first">
+                    <a href="index.php?s=/Index/detail">
+                        <img onmouseover="changeover('1');" id="a1" onmouseout="changeout('1');"  src="Webroot/Tpl/default/images/btn_bg01.jpg" width="180" height="48">
+                    </a>
+					<a style="text-decoration:none;" href="index.php?s=/Index/detail">
+                    <span class="wz">Luxury brands</span></a>
+                </div>
+                <div class="second">
+                    <a href="index.php?s=/Designer/index" >
+                        <img onmouseover="changeover('2');" id="a2" onmouseout="changeout('2');" src="Webroot/Tpl/default/images/btn_bg02.jpg" width="180" height="48">
+                    </a>
+					<a href="index.php?s=/Designer/index" style="text-decoration:none;">
+                    <span class="wz" style="margin-left:19px">Designer brands</span></a>
+                </div>
+            </div>
+
+		</div>
+	</div>
+    <div id="footernav">
+        致极国际贸易有限公司&nbsp;&nbsp;&nbsp;&nbsp;SPLENDID & CO INTERNATIONAL TRADING CO., LIMITED
+    </div>
+
+</div>
+<script type="text/javascript">
+	function changeover(flag){
+		document.getElementById('a'+flag).src='Webroot/Tpl/default/images/btn_bg0'+flag+'hover.jpg';
+		
+	}
+	function changeout(flag){
+		document.getElementById('a'+flag).src='Webroot/Tpl/default/images/btn_bg0'+flag+'.jpg';
+		
+	}
+    (function(){
+        var utils = function(){};
+        utils.prototype = {
+            $ : function(id){
+                return document.getElementById(id);
+            },
+            cssStyleToDomStyle : function() {
+                var test = document.createElement('div').style,
+                   cache = {
+                       'float': test.cssFloat != undefined ? 'cssFloat' : test.styleFloat != undefined ? 'styleFloat': 'float'
+                   };
+                return function(cssName) {
+                   return cache[cssName] || (cache[cssName] = cssName.toLowerCase().replace(/-./g, function(match){return match.charAt(1).toUpperCase();}));
+                };
+            }(),
+            setStyle : function (element, name, value) {
+                element.style[this.cssStyleToDomStyle(name)] = value;
+            }
+        }
+		var ScrollImg = function(){
+            this.utils = new utils();
+            this.init();
+        };
+		ScrollImg.prototype = {
+            current : 0,
+            init : function(){
+                this.data = this.getItem();
+                this.show();
+            },
+		    getItem : function(){
+				var list = this.utils.$("viewport").getElementsByTagName("img"),arr=[];
+				for (var i = 0,ci; ci = list[i++];) {
+					arr.push(ci)
+				}
+				return arr;
+			},
+            hide : function(){
+                for(var i=0,img;img = this.data[i++];){
+                    img.style.display = "none";
+                }
+            },
+            _hiddenCurrent : function(fun){
+                var item = this.data[this.current];
+                item.alpha = 100;
+                this.startMove(item,0,fun);
+            },
+            next : function(){
+                var me = this;
+                this._hiddenCurrent(function(){
+                    me.data[me.current].style.display = "none";
+                    me.current = me.isend() ? 0 : me.current+1;
+                    me.show();
+                });
+            },
+            isend:function(){
+                return this.data.length == this.current+1;
+            },
+            pre : function(){
+                var me = this;
+                this._hiddenCurrent(function(){
+                    me.getCurrent().style.display = "none";
+                    me.current = me.isstart() ? me.getItem().length-1 : me.current-1;
+                    me._show();
+                });
+            },
+            show : function(index){
+                var current = index || this.current;
+                var item = this.data[current];
+                this.utils.setStyle(item,"opacity","0");
+                this.utils.setStyle(item,"filter","alpha(opacity=0)");
+                item.style.display = "";
+                item.alpha = 0;
+                this.startMove(this.data[current],100);
+            },
+            render : function(){
+                var me = this;
+                me.hide();
+                me.show();
+                this.go = setInterval(function(){
+                    me.next();
+                },6000);
+            },
+            startMove : function(obj,iTarget,callback){
+                var me = this;
+                clearInterval(me.timer);
+                me.timer=setInterval(function (){
+                    var iSpeed=0;
+                    if(obj.alpha<iTarget){
+
+                        iSpeed=!!window.ActiveXObject ? 5 : 2;
+                    }else{
+                        iSpeed=!!window.ActiveXObject ? -5 : -2;
+                    }
+                    if(obj.alpha==iTarget){
+                        clearInterval(me.timer);
+                        callback && callback();
+                    }else{
+                        obj.alpha+=iSpeed;
+                        obj.style.filter='alpha(opacity:'+obj.alpha+')';
+                        obj.style.opacity=obj.alpha/100;
+                    }
+                }, 30);
+            }
+		}
+        var scroll = new ScrollImg();
+        scroll.render();
+
+        var utils = new utils();
+
+	})();
+
+
+
+</script>
+</body>
+</html>

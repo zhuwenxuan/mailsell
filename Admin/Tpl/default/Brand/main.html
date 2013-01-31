@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TR height=28>
+    <TD background=__TMPL__/images/title_bg1.jpg>当前位置: </TD></TR>
+  <TR>
+    <TD bgColor=#b1ceef height=1></TD></TR>
+  <TR height=20>
+    <TD background=__TMPL__/images/shadow_bg.jpg></TD></TR></TABLE>
+<form action="__APP__/Brand" id="form1" method="post"
+		enctype="multipart/form-data">
+		关键字：<input class="keyword" name="keyword" type="text" /> <select
+			name="index" id="index" title="请选择索引">
+			<option value="">索引</option>
+			<volist name="indexs" id="index">
+			<option value="{$index}">
+				{$index}
+			</option>
+			</volist>
+		</select> 
+		<input type="submit" value="搜索" class="submit-button" />
+	</form>
+    <table width="100%" border="1px">
+     <tr><td colspan="5"><a href="__APP__/Brand/toInsert/">添加品牌</a></td></tr>
+        <tr>
+            <td width="20%">名称</td>
+            <td width="10%">国家</td>
+            <td width="20%">logo</td>
+            <td width="20%">介绍</td>
+            <td width="30%">操作</td>
+        </tr>
+        <volist name="list" id="brand">
+        <tr>
+            <td>{$brand.name}</td>
+            <td>{$brand.city}</td>
+            <td><img src="__PUBLIC__/Uploads/{$brand.img}"></td>
+            <td>{$brand.intro}</td>
+            <td><a href="__APP__/Brand/delete/id/{$brand.id}">删除</a>&nbsp;&nbsp;<a href="__APP__/Brand/toInsert/id/{$brand.id}">修改</a></td>
+        </tr>
+        </volist>
+    </table>
+  {$page}
+</BODY></HTML>

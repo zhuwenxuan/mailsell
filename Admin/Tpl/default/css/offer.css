@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0 auto;padding:0; font-size:14px; font-family:宋体;}
+
+img{ border:0px; cursor:pointer;}
+ul{list-style-type:none;}
+.container{ margin:0px auto;padding:0px; width:717px; height:auto; background:rgb(216,189,208); overflow:auto; }
+.header{width:717px;height:291px; }
+.header1{width:717px;height:95px;background:rgb(77,9,60);}
+.header1 p{color:#FFF; font-family:黑体; text-align:center;}
+.header2{width:717px;height:23px;background:rgb(210,31,53); border-bottom:#FFF 2px solid;}
+.header2 p{color:#FFF; font-family:黑体; text-align:center; font-size:14px; word-spacing:41px; vertical-align:middle; line-height:23px;}
+.header3{width:717px;height:150px; background:url(../images/offer01.png);}
+.header4{width:717px;height:22px;background:rgb(122,124,121);}
+.content{width:717px; height:auto;}
+.content p{ margin:20px auto 20px 70px; font-weight:500;}
+.showimage{ text-align:center;}
+.showdetail{ border:#FFF 2px solid; width:571px; margin:0 auto; overflow:auto; padding-bottom:20px;}
+.textdetail{line-height:30px; margin:20px auto 35px 25px;}
+.textdetail li{ font-size:18px;letter-spacing: 4px;}
+.imagesdetail{margin:20px auto auto 25px;}
+.imagesdetail li{float:left;margin-right:2px;}
+.footer{padding-top:15px; padding-bottom:80px;}
+.footer p{ text-align:center; margin-top:20px;  height:40px; line-height:10px; }
+.footer span{vertical-align:middle; font-family:黑体;font-size:20px; font-weight:500;}
+.footer img{vertical-align:middle;}

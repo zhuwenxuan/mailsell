@@ -1,0 +1,687 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" href="Webroot/Tpl/default/css/site.css"
+          rel="stylesheet"/>
+    <link type="text/css" href="Webroot/Tpl/default/css/reg.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/tangram/tangram_all.js"></script>
+    <style>
+        .hearderbar {
+            margin-left: 25px;
+            margin-right: 25px;
+            height: 30px;
+            border-bottom: dotted 1px;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .incentre {
+            margin-left: 100px;
+        }
+
+        .incentre input {
+            border: 1px solid #7c7c7e;
+            height: 18px;
+            line-height: 18px;
+            margin: 0 12px 0 0;
+            padding: 3px 5px;
+            width: 200px;
+            float: left;
+            color: #666666
+        }
+
+            /*baidu.ui.Suggestion*/
+        .tangram-suggestion-main {
+            z-index: 1200;
+        }
+
+        .tangram-suggestion {
+            cursor: default;
+            border: #7F9DB9 solid 1px;
+            background: #FFF;
+        }
+
+        .tangram-suggestion table {
+            cursor: default;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .tangram-suggestion-current {
+            background: #C7DEED;
+            color: #fff;
+        }
+
+        .tangram-suggestion-prepend {
+            padding: 2px;
+            color: #c0c0c0;
+            font: 12px verdana;
+        }
+
+        .tangram-suggestion-append {
+            padding: 2px;
+            color: #c0c0c0;
+            font: 12px verdana;
+            text-align: right;
+        }
+        .notic{
+            text-align: center;
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript" src="Webroot/Tpl/default/js/ajax.js"></script>
+    <title>下载报价单</title>
+</head>
+
+<body>
+
+<div class="reg">
+
+<div class="page">
+
+<div class="header">
+    <div class="logo">
+        <img src="Webroot/Tpl/default/images/logo.png"/>
+    </div>
+    <div class="choose-lang">
+        <a id="lang-cn" href="#"></a> <a id="lang-en" href="#"></a>
+    </div>
+    <div class="clear"></div>
+    <div class="urllink">
+        <ul>
+            <li><img src="Webroot/Tpl/default/images/youjian.png"
+                     border="0"/><a href="index.php">首 页</a>
+            </li>
+            <li><img src="Webroot/Tpl/default/images/youjian.png"
+                     border="0"/><a href="index.php?s=/Index/detail">关于我们</a>
+            </li>
+            <li><img src="Webroot/Tpl/default/images/youjian.png"
+                     border="0"/><a href="index.php?s=/Index/detail">业务介绍</a>
+            </li>
+            <li><img src="Webroot/Tpl/default/images/youjian.png"
+                     border="0"/><a href="index.php?s=/Index/detail">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="nav">
+    <form action="__APP__/Quotation" id="form1" method="post"
+          enctype="multipart/form-data">
+
+
+        <img src="Webroot/Tpl/default/images/pinpaidaohang.jpg" border="0"
+             style="vertical-align: middle;"/>
+        <input class="keyword" name="keyword" type="text"/>
+        <select name="bid" id="bid" title="请选择品牌">
+            <option value="">请选择品牌</option>
+            <volist name="blist" id="brand">
+            <option value="{$brand.id}">
+                {$brand.name}(
+                <?php if(empty($bnum[$brand['id']])):?>
+                0
+                <?php else: echo ($bnum[$brand["id"]]);  endif; ?>
+                )
+            </option>
+            </volist>
+        </select>
+        <!--<input type="text" name="bid" id="bid" value="请选择品牌" onfocus="clearIpt(this)">-->
+        <select name="cid" id="cid">
+            <option value="">请选择分类</option>
+            <volist name="clist" id="cate">
+                <option value="{$cate.id}">
+                    {$cate.name}(
+                    <?php if(empty($cnum[$cate['id']])):?>
+                    0
+                    <?php else: echo ($cnum[$cate["id"]]);  endif; ?>
+                    )
+                </option>
+            </volist>
+
+        </select> <input type="submit" value="" class="submit-button"/>
+
+    </form>
+
+</div>
+
+
+<div class="main-content">
+
+<div class="left-side" id="leftheight">
+    <div class="left-side-title"></div>
+
+    <div class="left-content">
+        <ul>
+            <li><a href="index.php?s=/Quotation">最新</a></li>
+            <volist name="clist" id="cate">
+                <li><a href="javascript:leftSearch('{$cate.id}');">{$cate.name}（<?php if(empty($cnum[$cate['id']])):?>
+                    0<?php else: echo ($cnum[$cate["id"]]);  endif; ?>文件）</a></li>
+            </volist>
+
+        </ul>
+
+    </div>
+
+    <div class="profile">
+        <div class="title"></div>
+
+        <div class="left-content">
+            <ul>
+                <li><a href="javascript:show('bianji')">编辑个人信息</a></li>
+                <li><a href="javascript:show('lianxi')">联系我们</a></li>
+                <li><a href="index.php?s=/Index/logout">退出系统</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="right-side" id="bianji"
+     style="padding-top:40px;padding-bottom:30px;color:rgb(127,102,127);font-size:14px; line-height:30px;display:none;">
+    <form action="__APP__/Index/doModifyUser" method="post" id="editUser">
+        <div class="hearderbar">首页&nbsp;->&nbsp;编辑个人信息</div>
+        <table width="664px" cellspacing="0" cellpadding="0" border="0" class="incentre">
+            <tr>
+                <td>用户名：</td>
+                <td><input name="name" value="{$user1.name}"
+                           type="text" maxlength="10"/></td>
+            </tr>
+            <tr>
+                <td>输入密码：</td>
+                <td><input name="password" value="{$user1.password}"
+                           type="password" maxlength="10"/>&nbsp;注释：为空，不修改密码
+                </td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td><input value="{$user1.password}" type="password"
+                           maxlength="10"/></td>
+            </tr>
+            <tr>
+                <td style="font-size:12px">邮箱地址：</td>
+                <td><input name="email" value="{$user1.email}" type="text" maxlength="50"/>
+                </td>
+            </tr>
+            <tr>
+                <td>公司名称：</td>
+                <td><input name="compayname" value="{$user1.compayname}"
+                           type="text" maxlength="50"/></td>
+            </tr>
+            <tr>
+                <td>姓名：</td>
+                <td><input name="realname" value="{$user1.realname}"
+                           type="text" maxlength="50"/></td>
+            </tr>
+            <tr>
+                <td>国家：</td>
+                <td><input name="country" value="{$user1.country}"
+                           type="text" maxlength="50"/></td>
+            </tr>
+            <tr>
+                <td>联系电话：</td>
+                <td><input name="phone" value="{$user1.phone}"
+                           type="text" maxlength="50"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <img src="Webroot/Tpl/default/images/submit.jpg" border="0"
+                         onclick="javascript:checkSubmit();"/>
+                    <input type="hidden" name="id" value="{$user1.id}"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div class="right-side" id="lianxi"
+     style="padding-top:40px;padding-bottom:30px;color:rgb(127,102,127);font-size:14px; line-height:30px;display:none;">
+    <div class="hearderbar">首页&nbsp;->&nbsp;联系我们</div>
+    <div class="incentre">
+        {:W('Message')}
+    </div>
+</div>
+<div class="right-side" id="rightheight">
+    <div id="itemimg" class="image-show">
+        <img src="Webroot/Tpl/default/images/banner1.png"/> <img
+            src="Webroot/Tpl/default/images/banner2.png"/> <img
+            src="Webroot/Tpl/default/images/banner3.png"/>
+
+        <div class="imghandle">
+            <a onclick="scroll.toggshow(0)">1</a><a
+                onclick="scroll.toggshow(1)">2</a><a
+                onclick="scroll.toggshow(2)">3</a>
+        </div>
+    </div>
+
+    <div class="product-list">
+        <ul>
+
+            <volist name="qlist" id="q">
+                <li class="titlelink"><a
+                        href="javascript:checkShow('a{$q.id}');">{$q.name}</a><span
+                        class="time">{$q.createtime|substr=0,10}</span></li>
+
+                <li class="detail" id="a{$q.id}" style="display: none;">
+
+                    <div class="detailleft">
+                        <notempty name="q.xilie">
+                            <p><span>系列：{$q.xilie}</span></p>
+                        </notempty>
+                        <notempty name="q.leibie">
+                            <p><span>类别：{$q.leibie}</span></p>
+                        </notempty>
+                        <notempty name="q.leixing">
+                            <p><span>类型：{$q.leixing}</span></p>
+                        </notempty>
+                        <notempty name="q.yanse">
+                            <p><span>颜色：{$q.yanse}</span></p>
+                        </notempty>
+                        <notempty name="q.jiage">
+                            <p><span>价格：{$q.jiage}</span></p>
+                        </notempty>
+                        <notempty name="q.lingshoujia">
+                            <p><span>零售价：{$q.lingshoujia}</span></p>
+                        </notempty>
+                        <notempty name="q.ilingshoujia">
+                            <p><span>意大利零售价：{$q.ilingshoujia}</span></p>
+                        </notempty>
+                        <notempty name="q.nianling">
+                            <p><span>年龄：{$q.nianling}</span></p>
+                        </notempty>
+                        <notempty name="q.xingbie">
+                            <p><span>性别：{$q.xingbie}</span></p>
+                        </notempty>
+                        <notempty name="q.kuanshi">
+                            <p><span>款式：{$q.kuanshi}</span></p>
+                        </notempty>
+                        <notempty name="q.xinghao">
+                            <p><span>型号：{$q.xinghao}</span></p>
+                        </notempty>
+                        <notempty name="q.chima">
+                            <p><span>尺码：{$q.chima}</span></p>
+                        </notempty>
+                        <notempty name="q.caizhi">
+                            <p><span>材质：{$q.caizhi}</span></p>
+                        </notempty>
+                        <notempty name="q.zuixiao">
+                            <p><span>最小订单量：{$q.zuixiao}</span></p>
+                        </notempty>
+                        <notempty name="q.emiaoshu">
+                            <p><span>产品英文描述：{$q.emiaoshu}</span></p>
+                        </notempty>
+                        <notempty name="q.shuliang">
+                            <p><span>数量：{$q.shuliang}</span></p>
+                        </notempty>
+                        <notempty name="q.param1">
+                            <p><span>整单打包</span></p>
+                        </notempty>
+                        <notempty name="q.param2">
+                            <p><span>多种尺码和颜色</span></p>
+                        </notempty>
+                        <notempty name="q.param3">
+                            <p><span>常年供给</span></p>
+                        </notempty>
+                        <notempty name="q.param4">
+                            <p><span>现货供给</span></p>
+                        </notempty>
+                        <notempty name="q.param5">
+                            <p><span>可立即付运</span></p>
+                        </notempty>
+                        <notempty name="q.param6">
+                            <p><span>文件证书及其所有配件齐全</span></p>
+                        </notempty>
+                        <notempty name="q.param7">
+                            <p><span>请下载附件查阅更多信息</span></p>
+                        </notempty>
+                        <notempty name="q.param8">
+                            <p><span>订单详情请与我们取得联系</span></p>
+                        </notempty>
+                        <notempty name="q.miaoshu">
+                            <p><span>{$q.miaoshu}</span></p>
+                        </notempty>
+                        <notempty name="q.ufile">
+                            <p>
+                                <a href="__APP__/Quotation/download/id/{$q.id}">
+                                    <img src="Webroot/Tpl/default/images/download.jpg" border="0"/>
+                                </a>
+                            </p>
+                        </notempty>
+
+                    </div>
+                    <div class="detailright">
+                        <notempty name="q.deadline">
+                            <p>截止日期:{$q.deadline|substr=0,10}</p>
+                        </notempty>
+                        <notempty name="q.cname">
+                            <p>分类:{$q.cname}</p>
+                        </notempty>
+                        <notempty name="q.bname">
+                            <p>品牌:{$q.bname}</p>
+                        </notempty>
+                        <notempty name="q.size">
+                            <p>文件大小:{$q.size}</p>
+                        </notempty>
+                        <notempty name="q.ufile">
+                            <p>下载次数:{$q.hit}</p>
+                        </notempty>
+                        <notempty name="q.source">
+                            <p>货源:{$q.source}</p>
+                        </notempty>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+
+            </volist>
+        </ul>
+
+
+    </div>
+
+    <div class="clear"></div>
+    <div class="pager">{$page}</div>
+    <div class="notic">如果没有您想要的offer,请联系我们，告知我们您想要的品牌和商品</div>
+
+</div>
+<div class="clear"></div>
+</div>
+
+<div style="clear: both"></div>
+<div class="footer">
+    <a href="" target="_blank">意大利时尚批发</a> <span>|</span><a href=""
+                                                            target="_blank">国际高端品牌代理</a> <span>|</span><a href=""
+                                                                                                          target="_blank">奢侈品批发</a>
+    <span>|</span><a href="" target="_blank">友情链接</a>
+</div>
+</div>
+
+</div>
+
+</body>
+<script language="JavaScript">
+function leftSearch( searchId ) {
+    document.getElementById( 'cid' ).value = searchId;
+    document.getElementById( 'form1' ).submit();
+
+}
+
+document.getElementsByClassName = function ( eleClassName ) {
+    var getEleClass = [];//定义一个数组
+    var myclass = new RegExp( "\\b" + eleClassName + "\\b" );//创建一个正则表达式对像
+    var elem = this.getElementsByTagName( "*" );//获取文档里所有的元素
+    for ( var h = 0; h < elem.length; h++ ) {
+        var classes = elem[h].className;//获取class对像
+        if ( myclass.test( classes ) )
+            getEleClass.push( elem[h] );//正则比较，取到想要的CLASS对像
+    }
+    return getEleClass;//返回数组
+}
+
+function checkShow( detailid ) {
+    var check = document.getElementById( detailid );
+
+    if ( check.style.display == 'none' ) {
+        var checkname = document.getElementsByClassName( 'detail' );
+        for ( var i = 0, show; show = checkname[i++]; ) {
+            show.style.display = 'none';
+
+        }
+        check.style.display = 'block';
+    } else {
+
+        check.style.display = 'none';
+    }
+    showdiv();
+}
+
+(function () {
+
+    var utils = function () {
+    };
+    utils.prototype = {
+        $:function ( id ) {
+            return document.getElementById( id );
+        },
+        cssStyleToDomStyle:function () {
+            var test = document.createElement( 'div' ).style, cache = {
+                'float':test.cssFloat != undefined ? 'cssFloat'
+                        : test.styleFloat != undefined ? 'styleFloat'
+                        : 'float'
+            };
+            return function ( cssName ) {
+                return cache[cssName]
+                        || (cache[cssName] = cssName.toLowerCase().replace(
+                        /-./g, function ( match ) {
+                            return match.charAt( 1 ).toUpperCase();
+                        } ));
+            };
+        }(),
+        setStyle:function ( element, name, value ) {
+            element.style[this.cssStyleToDomStyle( name )] = value;
+        }
+    }
+    var ScrollImg = function () {
+        this.utils = new utils();
+        this.init();
+    };
+    ScrollImg.prototype = {
+        current:0,
+        init:function () {
+            this.data = this.getItem();
+        },
+        getItem:function () {
+            var list = this.utils.$( "itemimg" ).getElementsByTagName( "img" ), arr = [];
+            for ( var i = 0, ci; ci = list[i++]; ) {
+                arr.push( ci )
+            }
+            return arr;
+        },
+        hide:function () {
+            for ( var i = 0, img; img = this.data[i++]; ) {
+                img.style.display = "none";
+            }
+        },
+        _hiddenCurrent:function ( fun ) {
+            var item = this.data[this.current];
+            item.alpha = 100;
+            this.startMove( item, 0, fun );
+        },
+        next:function () {
+            var me = this;
+            this._hiddenCurrent( function () {
+                me.data[me.current].style.display = "none";
+                me.current = me.isend() ? 0 : me.current + 1;
+                me.show();
+            } );
+        },
+        isend:function () {
+            return this.data.length == this.current + 1;
+        },
+        isstart:function () {
+            return this.current == 0;
+        },
+        pre:function () {
+            var me = this;
+            this._hiddenCurrent( function () {
+                me.getCurrent().style.display = "none";
+                me.current = me.isstart() ? me.data.length - 1
+                        : me.current - 1;
+                me._show();
+            } );
+        },
+        show:function ( index ) {
+            var current = index || this.current;
+            var item = this.data[current];
+            this.utils.setStyle( item, "opacity", "0" );
+            this.utils.setStyle( item, "filter", "alpha(opacity=0)" );
+            item.style.display = "";
+            item.alpha = 0;
+            this.startMove( item, 100 );
+        },
+        toggshow:function ( index ) {
+            var me = this;
+            clearInterval( me.go );
+            this._hiddenCurrent( function () {
+                me.data[me.current].style.display = "none";
+                me.current = index;
+                me.show();
+            } );
+            me.go = setInterval( function () {
+                me.next();
+            }, 5000 );
+        },
+        render:function () {
+            var me = this;
+            me.hide();
+            me.data[me.current].style.display = "";
+            this.go = setInterval( function () {
+                me.next();
+            }, 5000 );
+        },
+        startMove:function ( obj, iTarget, callback ) {
+            var me = this;
+            clearInterval( me.timer );
+            me.timer = setInterval( function () {
+                var iSpeed = 0;
+                if ( obj.alpha < iTarget ) {
+                    iSpeed = !!window.ActiveXObject ? 5 : 2;
+                } else {
+                    iSpeed = !!window.ActiveXObject ? -5 : -2;
+                }
+                if ( obj.alpha == iTarget ) {
+                    clearInterval( me.timer );
+                    callback && callback();
+                } else {
+                    obj.alpha += iSpeed;
+                    obj.style.filter = 'alpha(opacity:' + obj.alpha + ')';
+                    obj.style.opacity = obj.alpha / 100;
+                }
+            }, 30 );
+        }
+    }
+    var scroll = new ScrollImg();
+    scroll.render();
+    window.scroll = scroll;
+})();
+function showdiv( id ) {
+    var left = document.getElementById( 'leftheight' ).offsetHeight;
+    var right = document.getElementById( id ).offsetHeight;
+    var leftint = parseInt( left );
+    var rightint = parseInt( right );
+    if ( leftint > rightint ) {
+        var temp = 0;
+        if ( id == "bianji" || id == "lianxi" )temp = -70;
+        document.getElementById( id ).style.height = leftint + temp
+                + 'px';
+
+    } else {
+        document.getElementById( 'leftheight' ).style.height = rightint
+                + 'px';
+    }
+}
+window.onload = function () {
+    showdiv( 'rightheight' );
+    showdiv( 'bianji' );
+    showdiv( 'lianxi' );
+}
+function show( show ) {
+    var show = document.getElementById( show );
+    var bianji = document.getElementById( 'bianji' );
+    var lianxi = document.getElementById( 'lianxi' );
+    var content = document.getElementById( 'rightheight' );
+
+    bianji.style.display = 'none';
+    lianxi.style.display = 'none';
+    content.style.display = 'none';
+    show.style.display = 'block';
+}
+function checkSubmit() {
+    var form = document.getElementById( 'editUser' );
+    var inputValues = form.getElementsByTagName( 'input' );
+    var userName = inputValues[0].value;
+    var password = inputValues[1].value;
+    var repassword = inputValues[2].value;
+    var val = inputValues[3].value;
+    var compayname = inputValues[4].value;
+    var realname = inputValues[5].value;
+    var country = inputValues[6].value;
+    var phone = inputValues[7].value;
+
+    if ( userName.length == 0 ) {
+        alert( '用户名不为空！' );
+        return '';
+    } else if ( password.length > 0 && password.length <= 6 ) {
+        alert( '密码应大于6位！' );
+        return '';
+
+    } else if ( password.length > 0 && password != repassword ) {
+        alert( '两次密码不一致！' );
+        return '';
+    } else if ( !val || !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9])*\.[A-Za-z0-9]+$/.test( val ) ) {
+        alert( '邮箱地址格式错误！' );
+        return'';
+    } else if ( compayname.length == 0 ) {
+        alert( '公司名称不为空！' );
+        return'';
+    } else if ( realname.length == 0 ) {
+        alert( '姓名不为空！' );
+        return'';
+    } else if ( country.length == 0 ) {
+        alert( '国家不为空！' );
+        return'';
+    } else if ( phone.length == 0 ) {
+        alert( '联系电话不为空！' );
+        return'';
+    } else {
+        baidu.ajax.form( form, {
+            async:true,
+            onsuccess:function ( xhr, msg ) {
+                if ( msg == 1 ) {
+                    alert( "修改成功！" );
+                } else {
+                    alert( "修改失败！" );
+                }
+            },
+            onfailure:function ( xhr ) {
+                alert( '请求失败！' );
+            }
+        } );
+    }
+}
+var instance = new baidu.ui.Suggestion( {
+    getData:function ( word ) {
+        var SD = [],
+                FD = [],
+                me = this;
+        T.ajax.get( "/mailsell/Admin/index.php?s=/Brand/search/key=" + word, function ( xhr, msg ) {
+            if ( xhr.status == 200 ) {
+                var arr = eval( '(' + msg + ')' );
+                for ( var i = 0, a; a = arr[i++]; ) {
+                    SD.push( a.name );
+                }
+                baidu.array.each( SD, function ( data, index ) {
+                    if ( word && data.indexOf( word ) != -1 ) {
+                        FD.push( data.replace( word, "<span style='color:red'>" + word + "</span>" ) );
+                    }
+                } );
+                me.appendHTML = "总共" + FD.length + "条";
+                me.show( word, FD );
+            }
+        } );
+    }, onbeforepick:function ( evt ) {
+        var div = document.createElement( 'div' );
+        div.innerHTML = evt.data.item.content;
+        evt.data.item.content = evt.data.item.value = baidu.dom.getText( div );
+    }
+} );
+instance.render( "bid" );
+function clearIpt(ipt){
+    if(ipt.value == "请选择品牌"){
+        ipt.value="";
+    }
+}
+</script>
+</html>

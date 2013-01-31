@@ -1,0 +1,327 @@
+
+body
+{
+	background-color:#3b3b3b;
+	font-family:"simhei";
+
+}
+
+a
+{
+	text-decoration:none;
+}
+
+.nav
+{
+height:62px;
+line-height:62px;
+vertical-align:middle;
+color:#FFF;
+
+}
+
+.nav form
+{
+	padding-top:8px;
+	margin:0;	
+	line-height:31px;
+}
+
+.nav form span
+{
+	font-family:΢���ź�,����;
+	font-size:23px;
+	line-height:23px;
+}
+
+.nav form input.keyword
+{
+	width:245px;
+	height:18px;
+	margin-left:10px;
+	
+	
+}
+
+.nav form select
+{
+width:195px;
+height:23px;
+margin-left:5px;
+}
+
+.nav .submit-button
+{
+background-image:url(../images/chazhao.png);
+background-color:transparent;
+
+width:96px;
+height:31px;
+
+border:none;
+vertical-align: middle;
+margin:-5px auto auto auto;
+padding:0;
+display:inline;
+}
+
+.urllink{float:right; margin: 5px 35px auto auto;}
+.urllink img { vertical-align:middle;}
+.urllink a { vertical-align:middle;}
+.urllink ul{list-style-type:none;}
+.urllink li{float:left; margin-right:15px; padding:0 5px; font-weight:bold;font-size:13px; color: #333; vertical-align:middle;}
+.urllink a{color:#636363;text-decoration:none}
+.urllink a:hover{text-decoration:underline; color:#3e8eac;}
+.main-content
+{
+
+height:auto
+}
+
+.left-side
+{
+width:286px;
+float:left;
+margin-bottom:0px;
+background-image:url(../images/left-bg.png);
+background-color: #DEDEDE;
+background-repeat: no-repeat;
+
+}
+
+.left-side-title
+{
+height:70px;
+background-image:url(../images/fenlei.png);
+background-position:center;
+}
+
+.left-content
+{
+height:auto;
+}
+
+.left-content ul
+{
+	list-style:none;
+}
+
+.left-content ul li
+{
+	border-bottom:solid 1px #CCC;
+	height:38px;
+	line-height:38px;
+	padding-left:35px;
+	font-size:14px;
+}
+
+
+.left-content ul li a
+{
+	color:#666;
+	padding-left:20px;
+	background-image:url(../images/arrow-right.png);
+	background-repeat:no-repeat;
+}
+
+.left-content ul li a:hover
+{
+	color:#3e8eac;
+}
+
+.profile
+{
+    background: url(../images/user_bg.jpg)
+}
+
+.profile .title
+{
+    margin: 0 auto;
+    width:261px;
+	height:55px;
+	background-image:url(../images/gerenxinxi.png);
+	background-repeat:no-repeat;
+	
+}
+
+.profile .edit a
+{
+	color:#666;
+	padding-left:20px;
+	margin-top:14px;
+	margin-left:14px;
+	background-image:url(../images/arrow-right.png);
+	background-repeat:no-repeat;
+}
+
+.right-side
+{
+width:664px;
+height:auto;
+margin-left:7px;
+float:left;
+background-color:#FFF;
+}
+
+.image-show
+{
+position:relative;
+	
+}
+.imghandle{
+    position:absolute;
+	right:10px;
+	bottom:10px;
+	z-index:10;
+}
+.imghandle a{
+    display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-color: #CCCECD;
+	color: white;
+	margin-right: 5px;
+	padding: 5px;
+	text-align: center;
+	cursor:pointer;
+}
+.imghandle a:hover{
+    background-color:#8B8A8A;
+}
+
+.product-list
+{
+min-height:473px;
+}
+
+.product-list ul
+{
+	list-style:none;
+	padding:20px;
+}
+
+.product-list ul .detail
+{
+	height:auto;
+	line-height:40px;
+
+	
+}
+.product-list ul .titlelink
+{
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	border-bottom: dotted 1px #CCC;
+}
+
+.product-list ul .titlelink a
+{
+	text-decoration:none;
+	color:#333;
+	background-image:url(../images/arrow-down.png);
+	background-position:right;
+	background-repeat:no-repeat;
+	padding-right:20px;
+}
+
+.product-list ul .titlelink span.time
+{
+	display:block;
+	float:right;
+	height:20px;
+	line-height:20px;
+	margin-top:10px;
+	+margin-top:-30px;
+}
+.detailright{
+	width:190px;
+	padding-left:5px;
+	height:auto;
+	font-size:14px;
+	float:right;
+	color:#666;
+	text-align:right;
+	line-height:25px;
+}
+
+.detailleft{
+	float:left;
+	width:380px;
+	height:auto;
+	border-right:dotted 1px #ccc;
+	color:#666;
+	line-height:25px;
+	
+}
+.detailleft img{
+    cursor:pointer;
+}
+.pager
+{
+	text-align:center;
+	padding-left:100px;
+	margin-left:auto;
+	margin-right:auto;
+    margin-bottom: 4px;
+}
+
+.pager ul
+{
+	display:inline;
+	margin-left:auto;
+	margin-right:auto;
+	list-style-type:none;
+}
+
+.pager ul li
+{
+	display:block;
+	float:left;
+	margin:2px;
+
+}
+
+.pager a
+{
+	display:inline-block;
+	width:22px;
+	height:22px;
+	line-height:22px;
+	text-align:center;
+	border:solid 1px #CCC;
+    color:#383732;
+    font-size:14px;
+}
+.pager a.pre{
+    	width:50px;
+}
+.pager .current{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    border: solid 1px #898788;
+    color:#383732;
+    font-size: 14px;
+    background-color: #F1F2F4;
+}
+.pager .next{
+    width:50px;
+}
+
+.pager a:hover
+{
+	background-color:#CCC;
+}
+.pager a:active
+{
+	background-color:#CCC;
+}
+
+.pager a.pager-next
+{
+	width:60px;
+    background-color: #F3F3F3;
+}

@@ -1,0 +1,35 @@
+.wrap{min-height: 100%;height: 100%;margin: 0 auto;position: relative;z-index: 1;}
+.container{margin: 0px auto;width: 955px;z-index: 10;position: relative;z-index: 10;}
+
+
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear:both;}
+.tc{text-align: center;}
+.designer img{display: block;}
+div{z-index: 1;position: relative;}
+
+
+.designer{margin: 0 auto;width:960px;padding: 10px;}
+.tl1{width: 306px;height:225px;}
+.tl2{width: 354px;height:108px;}
+.tl{width:356px;}
+.tr{width: 578px;height:333px;}
+
+.dmiddle{width: 759px;margin-right: 25px;}
+.ml{width:155px;height: 282px;}
+.m1{width:185px;height: 138px; }
+.m2{width:423px;height: 144px;}
+.mr{width:181px;height: 282px;}
+.mm{width:423px;height: 138px; margin:0 0;padding:0 0;}
+
+.dbottom{width:634px;margin-left: 25px;}
+.bl{width:323px;height: 196px;}
+.bm{width:148px;height: 196px; }
+.br{width:152px;height: 196px;}
+.fonty{font-size:45px;color:rgb(252,252,92);font-weight:900;text-align:center;font-family:黑体;}
+.fontg{font-size:25px;color:rgb(252,252,92);text-align:center;font-family:黑体;letter-spacing: 11px;}
+.myfont{height: 90px;
+width: 238px;
+padding-top: 32px;
+line-height: 45px;}

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" href="Webroot/Tpl/default/css/site.css" rel="stylesheet"/>
+    <link type="text/css" href="Webroot/Tpl/default/css/reg.css" rel="stylesheet"/>
+    <title>编辑个人信息</title>
+    <style>
+        .hearderbar {
+            margin-left: 25px;
+            margin-right: 25px;
+            height: 30px;
+            border-bottom: dotted 1px;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .input[type="text"], .input[type="password"] {
+            border: 1px solid #7c7c7e;
+            height: 18px;
+            line-height: 18px;
+            margin: 0 12px 0 0;
+            padding: 3px 5px;
+            width: 200px;
+            float: left;
+            color: #666666
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="reg">
+
+    <div class="page">
+
+        <div class="header">
+            <div class="logo"><img src="Webroot/Tpl/default/images/logo.png" width="296" height="26"/></div>
+            <div class="choose-lang">
+                <a id="lang-cn" href="#" style="cursor:pointer;"></a>
+                <a id="lang-en" href="#" style="cursor:pointer;"></a>
+            </div>
+            <div class="clear"></div>
+            <div class="urllink">
+                <ul>
+                    <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a href="index.php">首 页</a></li>
+                    <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a
+                            href="index.php?s=/Index/detail">关于我们</a></li>
+                    <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a
+                            href="index.php?s=/Index/detail">业务介绍</a></li>
+                    <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a
+                            href="index.php?s=/Index/detail">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="nav">
+            <form action="__APP__/Quotation" id="form2" method="post" enctype="multipart/form-data">
+
+
+                <img src="Webroot/Tpl/default/images/pinpaidaohang.jpg" border="0" style="vertical-align:middle;"/>
+                <input class="keyword" name="keyword" type="text"/>
+                <select name="bid" id="bid" title="请选择品牌">
+                    <option value="">请选择品牌</option>
+                    <volist name="blist" id="brand">
+                        <option value="{$brand.id}">{$brand.name}(<?php if(empty($bnum[$brand['id']])):?>
+                            0<?php else: echo ($bnum[$brand["id"]]);  endif; ?>)
+                        </option>
+                    </volist>
+                </select>
+
+                <select name="cid" id="cid">
+                    <option value="">请选择分类</option>
+                    <volist name="clist" id="cate">
+                        <option value="{$cate.id}">{$cate.name}(<?php if(empty($cnum[$cate['id']])):?>
+                            0<?php else: echo ($cnum[$cate["id"]]);  endif; ?>)
+                        </option>
+                    </volist>
+
+                </select>
+
+                <input type="submit" value="" class="submit-button"/>
+
+            </form>
+
+        </div>
+
+
+        <div class="main-content">
+
+            <div class="left-side" id="leftheight">
+                <div class="left-side-title">
+                </div>
+
+                <div class="left-content">
+                    <ul>
+                        <volist name="clist" id="cate">
+                            <li>
+
+                                <a href="javascript:leftSearch('{$cate.id}');">{$cate.name}（<?php if(empty($cnum[$cate['id']])):?>
+                                    0<?php else: echo ($cnum[$cate["id"]]);  endif; ?>文件）</a>
+
+                            </li>
+                        </volist>
+                    </ul>
+
+                </div>
+
+                <div class="profile">
+                    <div class="title"></div>
+
+                    <div class="left-content">
+                        <ul>
+                            <li>
+                                <a href="index.php?s=/Index/toModify">编辑个人信息</a>
+                            </li>
+                            <li>
+                                <a href="index.php?s=/Index/detail">联系我们</a>
+                            </li>
+                            <li>
+                                <a href="index.php?s=/Index/logout">退出系统</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="right-side" id="rightheight"
+                 style="padding-top:40px;padding-bottom:30px;color:rgb(127,102,127);font-size:14px; line-height:30px;">
+                <form action="__APP__/Index/doModifyUser" method="post" id="form1">
+                    <div class="hearderbar">首页&nbsp;->&nbsp;编辑个人信息</div>
+                    <table width="664px" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td width="100px"></td>
+                            <td style="text-align:left;width:80px;">用户名：</td>
+                            <td style="text-align:left;"><input name="name" class="input" value="{$data2.name}"
+                                                                type="text" maxlength="10"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align:left">输入密码：</td>
+                            <td style="text-align:left;"><input name="password" class="input" value="{$data2.password}"
+                                                                type="password" maxlength="10"/>&nbsp;注释：为空，不修改密码</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align:left">确认密码：</td>
+                            <td style="text-align:left;"><input class="input" value="{$data2.password}" type="password"
+                                                                maxlength="10"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align:left" style="font-size:12px">邮箱地址：</td>
+                            <td><input name="email" value="{$data2.email}" class="input" type="text" maxlength="50"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align:left">公司名称：</td>
+                            <td style="text-align:left;"><input name="compayname" value="{$data2.compayname}"
+                                                                class="input" type="text" maxlength="50"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align:left">姓名：</td>
+                            <td style="text-align:left;"><input name="realname" value="{$data2.realname}" class="input"
+                                                                type="text" maxlength="50"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align:left">国家：</td>
+                            <td style="text-align:left;"><input name="country" value="{$data2.country}" class="input"
+                                                                type="text" maxlength="50"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align:left">联系电话：</td>
+                            <td style="text-align:left;"><input name="phone" value="{$data2.phone}" class="input"
+                                                                type="text" maxlength="50"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td style="text-align:left">
+                                <img src="Webroot/Tpl/default/images/submit.jpg" border="0"
+                                     onclick="javascript:checkSubmit();"/>
+                                <input type="hidden" name="id" value="{$data2.id}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+        <div class="footer">
+            <div class="footer-content">
+                <a href="" target="_blank">意大利时尚批发</a><span>|</span><a href=""
+                                                                       target="_blank">国际高端品牌代理</a><span>|</span><a
+                    href="" target="_blank">奢侈品批发</a><span>|</span><a href="" target="_blank">友情链接</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script language="JavaScript">
+    function leftSearch(searchId) {
+        document.getElementById('cid').value = searchId;
+        document.getElementById('form2').submit();
+
+    }
+    (function () {
+
+        checkSubmit = function () {
+            var form = document.getElementById('form1');
+            var inputValues = form.getElementsByTagName('input');
+            var userName = inputValues[0].value;
+            var password = inputValues[1].value;
+            var repassword = inputValues[2].value;
+            var val = inputValues[3].value;
+            var compayname = inputValues[4].value;
+            var realname = inputValues[5].value;
+            var country = inputValues[6].value;
+            var phone = inputValues[7].value;
+
+            if (userName.length == 0) {
+                alert('用户名不为空！');
+                return '';
+            } else if (password.length>0&&password.length <= 6) {
+                alert('密码应大于6位！');
+                return '';
+
+            } else if (password.length>0&& password != repassword) {
+                alert('两次密码不一致！');
+                return '';
+            } else if (!val || !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9])*\.[A-Za-z0-9]+$/.test(val)) {
+                alert('邮箱地址格式错误！');
+                return'';
+            } else if (compayname.length == 0) {
+                alert('公司名称不为空！');
+                return'';
+            } else if (realname.length == 0) {
+                alert('姓名不为空！');
+                return'';
+            } else if (country.length == 0) {
+                alert('国家不为空！');
+                return'';
+            } else if (phone.length == 0) {
+                alert('联系电话不为空！');
+                return'';
+            } else {
+                form.submit();
+            }
+
+
+        }
+        function showdiv() {
+            var left = document.getElementById('leftheight').offsetHeight;
+            var right = document.getElementById('rightheight').offsetHeight;
+            var leftint = parseInt(left);
+            var rightint = parseInt(right);
+            if (leftint > rightint) {
+                document.getElementById('rightheight').style.height = leftint-70 + 'px';
+
+            } else {
+                document.getElementById('leftheight').style.height = rightint + 'px';
+            }
+        }
+
+        window.onload = function () {
+            showdiv();
+        }
+
+    })();
+
+</script>
+</html>

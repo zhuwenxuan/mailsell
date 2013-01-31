@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+</head>
+<body>
+	<style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0 auto;
+	padding: 0;
+	font-size: 14px;
+	font-family: 宋体;
+}
+
+img {
+	border: 0px;
+	cursor: pointer;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.container {
+	margin: 0px auto;
+	padding: 0px;
+	width: 717px;
+	height: auto;
+	background: rgb(216, 189, 208);
+	overflow: auto;
+}
+
+.header {
+	width: 717px;
+	height: 291px;
+}
+
+.header1 {
+	width: 717px;
+	height: 95px;
+	background: rgb(77, 9, 60);
+}
+
+.header1 p {
+	color: #FFF;
+	font-family: 黑体;
+	text-align: center;
+}
+
+.header2 {
+	width: 717px;
+	height: 23px;
+	background: rgb(210, 31, 53);
+	border-bottom: #FFF 2px solid;
+}
+
+.header2 p {
+	color: #FFF;
+	font-family: 黑体;
+	text-align: center;
+	font-size: 14px;
+	word-spacing: 41px;
+	vertical-align: middle;
+	line-height: 23px;
+}
+
+.header3 {
+	width: 717px;
+	height: 150px;
+	background: url(../images/offer01.png);
+}
+
+.header4 {
+	width: 717px;
+	height: 22px;
+	background: rgb(122, 124, 121);
+}
+
+.content {
+	width: 717px;
+	height: 500px;
+}
+
+
+.showdetail { background-color:#FFF; height:300px; margin:15px 15px auto 15px; padding:20px;
+}
+.tuiding{color:#999; letter-spacing:5px;}
+.textdetail { margin-top:40px; margin-left:50px;
+}
+
+.textdetail input{ width:150px; height:20px;}
+.textdetail td{ height:30px;}
+.textdetail select{ width:155px;height:20px;}
+.textdetail textarea{width:330px; height:80px;}
+</style>
+	<div class="container">
+		<div class="header">
+			<div class="header1">
+				<p
+					style="font-size: 21px; font-weight: bold; padding-top: 15px; letter-spacing: 1px;">Your
+					professional buying office in italy</p>
+			</div>
+			<div class="header2">
+				<p>欧洲同步报价 奢侈品 时尚专家</p>
+			</div>
+			<div
+				style="width: 717px; height: 150px; background: url(http://<?php echo $_SERVER['HTTP_HOST'];?>/Webroot/__TMPL__images/offer01.png);"></div>
+			<div class="header4"></div>
+			<div class="header5"></div>
+
+		</div>
+		<div class="content">
+		
+	      <div class="showdetail">
+          <h1 class="tuiding">退订</h1>
+          <form action="__APP__/mail/unsub" method="post" onsubmit="return checkform();">
+          <table  class="textdetail" >
+          <tr><td align="right" width="180px">Email：</td><td><input type="text" maxlength="20" name="email"/></td></tr>
+          <tr><td align="right">通过哪种方式知道我们：</td><td><select name="how2no"><option>网站</option><option>朋友</option><option>其他</option></select></td></tr>
+          <tr><td align="right" valign="top">退订原因：</td><td><textarea name="unsubreason"id="textcontent" ></textarea></td></tr>
+          <tr><td></td><td><input type="submit" style="width:70px; height:25px; margin-left:100px;" value="提交"/> <input type="reset"  style="width:70px; height:25px;" value="重置"/></td></tr>
+          </table>
+          </form>
+          </div>
+		
+			
+		</div>
+
+	</div>
+<script type="text/javascript">
+
+	
+		function checkform(){
+			var size = document.getElementById('textcontent').value.length;
+			if(parseInt(size)>200){
+				alert('内容长度应小于200字符！');
+				return false;
+				
+				
+			}
+			
+			return true;
+		}
+		
+		
+
+	
+	
+</script>
+</body>
+</html>

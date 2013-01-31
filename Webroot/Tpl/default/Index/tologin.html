@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<link href="Webroot/Tpl/default/css/login.css"  type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="Webroot/Tpl/default/js/ajax.js"></script>
+</head>
+<body>
+<div class="wrapper">
+	<div id="viewport" style="width: 100% height: 100%;text-align:center;background-color:#000;position:absolute;">
+		<img src="Webroot/Tpl/default/images/loginbg.jpg" style="width: 1200px; height: 736px;  ">
+	</div>
+	<div class="main">
+		<form action="__APP__/Index/login" method="post" id="logSubmit">
+		<div class="login">
+		<p><span>用户名：</span><input id="uname" type="text" name="name"  maxlength="10"/></p>
+		<p><span style="margin-left:16px;">密码：</span><input id="upwd"  name="password" maxlength="10" type="password"/></p>
+		<p style="padding-left:62px;"><img src="Webroot/Tpl/default/images/loginbutton.png" onclick="javascript:login();" style="cursor:pointer;" />
+		&nbsp;&nbsp;<img src="Webroot/Tpl/default/images/regbutton.png" onclick="location.href='index.php?s=/Index/toInsert'" style="cursor:pointer;"/> </p>
+		</div>
+		</form>
+	</div>
+	<div class="footer">
+		  致极国际贸易有限公司&nbsp;&nbsp;&nbsp;&nbsp;SPLENDID & CO INTERNATIONAL TRADING CO., LIMITED
+	</div>
+</div>
+</body>
+<script>
+	    var $ = function(id){
+        return document.getElementById(id);
+    };
+	    function login(){
+        var form = $("logSubmit");
+        T.ajax.request(form.action,{
+            data:"name="+encodeURI($("uname").value)+"&password="+encodeURI($("upwd").value),
+            onsuccess:function(xhr,msg){
+                if(msg == "-1"){
+                    alert("用户名或密码错误");
+                }else{
+                    alert("登陆成功");
+                    location.href="index.php?s=/Quotation/index";
+                }
+            }
+        });
+    }
+	
+</script>
+</html>

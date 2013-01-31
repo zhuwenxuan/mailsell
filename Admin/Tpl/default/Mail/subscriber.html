@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<META http-equiv=Content-Type content="text/html; charset=utf-8">
+		<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+	</HEAD>
+	<BODY>
+		<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+			<TR height=28>
+				<TD background=__TMPL__/images/title_bg1.jpg>当前位置: </TD>
+			</TR>
+			<TR>
+				<TD bgColor=#b1ceef height=1></TD>
+			</TR>
+			<TR height=20>
+				<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+			</TR>
+		</TABLE>
+
+		<table width="50%" border="1px">
+			<tr>
+				<td>Email</td>
+				<td>状态</td>
+				<td>创建时间</td>
+				<td>操作</td>
+
+			</tr>
+			<volist name="list" id="subscriber">
+				<tr>
+					<td>{$subscriber.adress}</td>
+					<td><if condition="$subscriber['status'] eq 1"> 正常<else />禁用</if></td>
+					<td>{$subscriber.createtime|substr=0,10}</td>
+					<td><a href="__APP__/Mail/togglesub/id/{$subscriber.id}"><if condition="$subscriber['status'] eq 1"> 禁用<else />恢复</if></a>|<a href="__APP__/Mail/delsub/id/{$subscriber.id}">删除</a></td>
+				</tr>
+			</volist>
+		</table>
+		{$page}
+	</BODY>
+</HTML>

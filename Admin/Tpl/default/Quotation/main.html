@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<TR height=28>
+			<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+		</TR>
+		<TR>
+			<TD bgColor=#b1ceef height=1></TD>
+		</TR>
+		<TR height=20>
+			<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+		</TR>
+	</TABLE>
+	<form action="__APP__/Quotation" id="form1" method="post"
+		enctype="multipart/form-data">
+		关键字：<input class="keyword" name="keyword" type="text" /> <select
+			name="bid" id="bid" title="请选择品牌">
+			<option value="">请选择品牌</option>
+			<volist name="blist" id="brand">
+			<option value="{$brand.id}">
+				{$brand.name}(
+				<?php if(empty($bnum[$brand['id']])):?>
+				0
+				<?php else: echo ($bnum[$brand["id"]]);  endif; ?>
+				)
+			</option>
+			</volist>
+		</select> <select name="cid" id="cid">
+			<option value="">请选择分类</option>
+			<volist name="clist" id="cate">
+			<option value="{$cate.id}">
+				{$cate.name}(
+				<?php if(empty($cnum[$cate['id']])):?>
+				0
+				<?php else: echo ($cnum[$cate["id"]]);  endif; ?>
+				)
+			</option>
+			</volist>
+
+		</select> <input type="submit" value="搜索" class="submit-button" />
+	</form>
+	<table width="100%" border="1px">
+		<tr>
+			<td colspan="6"><a href="__APP__/Quotation/toInsert/">添加报价单</a>
+			</td>
+		</tr>
+		<tr>
+			<td width="20%">名称</td>
+			<td width="10%">分类</td>
+			<td width="20%">品牌</td>
+			<td width="20%">介绍</td>
+			<td width="10%">状态</td>
+			<td width="20%">操作</td>
+		</tr>
+		<volist name="list" id="quota">
+		<tr>
+			<td>{$quota.name}</td>
+			<td>{$quota.cname}</td>
+			<td>{$quota.bname}</td>
+			<td>{$quota.miaoshu}</td>
+			<td><if condition="$quota['visible'] eq 1"> 显示<else />隐藏</if>
+			</td>
+			<td><a href="__APP__/Quotation/delete/id/{$quota.id}">删除</a>&nbsp;&nbsp;<a
+				href="__APP__/Quotation/toInsert/id/{$quota.id}">修改</a>&nbsp;&nbsp;<a
+				href="__APP__/Quotation/toggle/id/{$quota.id}"><if
+						condition="$quota['visible'] eq 0"> 显示<else />隐藏</if> </a>
+			</td>
+		</tr>
+		</volist>
+	</table>
+	{$page}
+</BODY>
+</HTML>

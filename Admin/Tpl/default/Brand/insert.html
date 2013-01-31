@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<META http-equiv=Content-Type content="text/html; charset=utf-8">
+		<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript ">
+            window.UEDITOR_HOME_URL = "__PUBLIC__/ueditor/";
+        </script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/tangram/tangram_all.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/editor_config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/editor_all.js"></script>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/ueditor/themes/default/ueditor.css"/>
+        <style type="text/css">
+            /*baidu.ui.Suggestion*/
+            .tangram-suggestion-main{
+                z-index: 1200;
+            }
+            .tangram-suggestion{
+                cursor : default;
+                border : #7F9DB9 solid 1px;
+            	background:#FFF;
+            }
+            .tangram-suggestion table{
+                cursor : default;
+                width : 100%;
+                font-size : 14px;
+            }
+            .tangram-suggestion-current{
+                background : #C7DEED;
+                color : #fff;
+            }
+            .tangram-suggestion-prepend{
+                padding:2px;
+                color:#c0c0c0;
+                font:12px verdana;
+            }
+            .tangram-suggestion-append{
+                padding:2px;
+                color:#c0c0c0;
+                font:12px verdana;
+                text-align:right;
+            }
+        </style>
+		<script type="text/javascript">
+			function validate() {
+				var name = document.getElementById("name").value;
+				var city = document.getElementById("city").value;
+				var img = document.getElementById("img").value;
+				var imgpre = document.getElementById("imgpre").value;
+				if(name.trim() == "") {
+					alert("请填写品牌名称。");
+					return false;
+				}
+				if(city.trim() == "") {
+					alert("请填写品牌地区。");
+					return false;
+				}
+				if(img.trim() == ""&&imgpre.trim() == "") {
+					alert("请上传品牌图片。");
+					return false;
+				}
+			}
+
+		</script>
+	</HEAD>
+	<BODY>
+		<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+			<TR height=28>
+				<TD background=__TMPL__/images/title_bg1.jpg>当前位置: </TD>
+			</TR>
+			<TR>
+				<TD bgColor=#b1ceef height=1></TD>
+			</TR>
+			<TR height=20>
+				<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+			</TR>
+		</TABLE>
+
+		<form action="__APP__/Brand/insert" method="post" onsubmit="javascript:return validate()"
+		enctype="multipart/form-data">
+			<table cellpadding=3 cellspacing=3>
+				<td>
+				<input type="hidden" name="id" id="id" value='{$brand.id}'>
+				</td>
+				<tr>
+					<td>品牌名称：</td>
+					<td>
+					<input type="text" name="name" id="name" value="{$brand.name}" width="300" size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>所属国家：</td>
+					<td>
+					<select name="city" id="city" onchange="toggleOpt(this)">
+					    <option value="{$brand.city}">{$brand.city}</option>
+						<option value="意大利">意大利</option>
+						<option value="法国">法国</option>
+						<option value="西班牙">西班牙</option>
+						<option value="芬兰">芬兰</option>
+						<option value="瑞士">瑞士</option>
+						<option value="瑞典">瑞典</option>
+						<option value="比利时">比利时</option>
+						<option value="摩纳哥">摩纳哥</option>
+						<option value="丹麦">丹麦</option>
+						<option value="英国">英国</option>
+						<option value="德国">德国</option>
+						<option value="荷兰">荷兰</option>
+						<option value="美国">美国</option>
+						<option value="日本">日本</option>
+						<option value="韩国">韩国</option>
+						<option value="another">其他</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_title_1">选择索引：</td>
+					<td>
+					
+					<select name="index" id="index">
+						<volist name="indexs" id="index">
+						<option value="{$index}" <if condition="($brand['index'] == $index)">
+							selected='selected'<else /></if>>{$index}</option>
+						</volist>
+					</select></td>
+				</tr>
+				<tr>
+					<td>logo：</td>
+					<td>
+					<input type="file" name="img" id="img" value="{$brand.img}">
+					预览 <img id="imgpre" src="__PUBLIC__/Uploads/{$brand.img}"></td>
+					
+				</tr>
+				<tr>
+					<td>介绍</td>
+					<td>
+                        <script type="text/plain" id="editor" style="width:1000px;">
+                            {$brand.intro}
+                        </script>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<input type="submit" value="提交">
+					</td>
+					<td>
+					<input type="reset" value="取消">
+					</td>
+				</tr>
+			</table>
+		</form>
+        <script type="text/javascript">
+            var ue = new UE.ui.Editor({
+                textarea:"intro"
+            });
+            ue.render('editor');
+			function toggleOpt(obj){
+			    if(obj.value == "another"){
+				    obj.parentNode.innerHTML = "<input type='text' name='city'/>";
+				}
+			}
+            var instance = new baidu.ui.Suggestion({
+                getData: function(word){
+                    var SD = [],
+                           FD = [],
+                            me = this;
+                    T.ajax.get("__APP__/Brand/search/key="+word,function(xhr,msg){
+                        if(xhr.status==200){
+                            var arr = eval('('+msg+')');
+                            for(var i=0,a;a=arr[i++];){
+                                SD.push(a.name);
+                            }
+                            baidu.array.each(SD, function(data, index){
+                                if(word && data.indexOf(word)!= -1){
+                                    FD.push(data.replace(word, "<span style='color:red'>"+word+"</span>"));
+                                }
+                            });
+                            me.appendHTML = "总共"+FD.length+"条";me.show(word,FD);
+                        }
+                    });
+                }, onbeforepick: function(evt){
+                    var div = document.createElement('div');
+                    div.innerHTML = evt.data.item.content;
+                    evt.data.item.content = evt.data.item.value = baidu.dom.getText(div);
+                }
+            });
+            instance.render("name");
+        </script>
+	</BODY>
+</HTML>

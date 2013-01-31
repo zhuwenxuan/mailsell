@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="shortcut icon" href="/logo.ico" type="image/x-icon" />
+    <title>详细页</title>
+    <meta name="keywords" content="专业奢侈品批发,设计公司,奢侈品牌批发,意大利时尚批发,国际时尚品牌代理加盟">
+    <meta name="description" content="专业奢侈品批发,设计公司,奢侈品牌批发,意大利时尚批发,国际时尚品牌代理加盟">
+    <link rel="stylesheet" type="text/css" href="Webroot/Tpl/default/css/detail.css">
+    <script type="text/javascript" src="Webroot/Tpl/default/js/ajax.js"></script>
+	<style>
+		.gleft input{ width:180px; height:27px;}
+		.gleft td{height:33px;color:rgb(116,116,108)}
+		.gright ul{ margin-bottom:39px;}
+		.gright li{font-weight:500; height:25px;line-height:24px;}
+		.gleft img{cursor:pointer;}
+        .wrap{
+            min-height: 100%;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+	</style>
+</head>
+<body>
+<div class="wrap">
+    <div style="z-index:1;position: fixed;top: 0;left: 0;overflow: hidden;width: 100%;height: 100%;text-align: center;background: no-repeat top center;">
+        <img src="Webroot/Tpl/default/images/bg.jpg" class="wallpaper" alt="" width="100%" height="100%" >
+    </div>
+    <div class="w971" style="z-index: 10;position:relative;">
+        <div class="head">
+            <div class="lang">
+                <img src="Webroot/Tpl/default/images/eng.jpg" style="cursor:pointer;"/>
+                <img src="Webroot/Tpl/default/images/china.jpg" style="cursor:pointer;"/>
+            </div>
+            <div class="logo">
+                <img src="Webroot/Tpl/default/images/logo.png">
+            </div>
+
+        </div>
+        <div class="area_head">
+            <div class="menu">
+                <a href="index.php" class="menu-index">首页</a>
+                <span style="width:150px;height:80px;"> </span>
+                <a href="javascript:show('jieshao')" class="menu-ywjs">业务介绍</a>
+                <span style="width:152px;height:80px;"> </span>
+                <a href="javascript:show('guanyu')" class="menu-gywm">关于我们</a>
+                <span style="width:149px;height:80px;"> </span>
+                <a href="javascript:show('lianxi')" class="menu-lxwm">联系我们</a>
+                <span style="width:150px;height:80px;"> </span>
+                <a href="javascript:show('jiameng')" class="menu-zsjm">招商加盟</a>
+            </div>
+            <form action="__APP__/Index/login" method="post" id="logSubmit">
+                <div class="login" >
+                    <p style="font-family:'黑体'; margin-left:58px;font-size:22px; color:#fff;font-weight:bolid; margin-top:57px; text-align:center;word-spacing:-9px;">
+                        专 业 客 户 专 区</p>
+
+                    <p style="font-family:'黑体';margin-left:58px; font-size:13px; color:#fff; margin-top:20px; text-align:center;word-spacing:-2px;">
+                        进 入 网 上 订 单 查 询</p>
+                    <a href="index.php?s=/Index/toInsert" target="_blank"
+                       style="background-image: url(Webroot/Tpl/default/images/zhucebg.png);color: #FFFFFF;
+        float: left;font-family: '黑体';font-size: 16px;
+        height: 30px; line-height: 28px;margin: 23px 10px 23px auto;text-align: center;vertical-align: middle; width: 61px;">注册</a>
+                    <input id="uname" type="text" name="name" maxlength="10"  value="用户名" style="padding-left:10px;color:#888888; font-weight:bold;float:left;margin-top:26px;width:170px;height:20px;line-height: 20px; " onfocus="this.value=''"/>
+
+                    <div class="clear"></div>
+                    <a href="javascript:login()"
+                       style="background-image:url(Webroot/Tpl/default/images/denglubg.png);float:left; font-family:'黑体';font-size:16px; color:#fff; margin:-2px 10px 0 auto; height: 30px; line-height: 28px;text-align: center;vertical-align: middle; width: 61px;">登录</a>
+                    <input id="upwd" type="password" name="password" value=""  onfocus="this.value=''" maxlength="10" style=" padding-left:10px;float:left; width:170px;height:20px;line-height: 20px;"/>
+
+                    <div class="clear"></div>
+                </div>
+            </form>
+        </div>
+        <div class="clear"></div>
+        <div id="itemimg" class="area_focus">
+            <img src="Webroot/Tpl/default/images/011.jpg" width="955" height="410"/>
+            <img src="Webroot/Tpl/default/images/022.jpg" width="955" height="410"/>
+            <img src="Webroot/Tpl/default/images/033.jpg" width="955" height="410"/>
+            <img src="Webroot/Tpl/default/images/044.jpg" width="955" height="410"/>
+            <img src="Webroot/Tpl/default/images/055.jpg" width="955" height="410"/>
+            <img src="Webroot/Tpl/default/images/066.jpg" width="955" height="410"/>
+        </div>
+        <div class="area_content">
+        <div id="init" >
+                <p>
+                    致极国际贸易有限公司(SPLENDID & CO INTERNATIONAL TRADING CO., LIMITED) 专业的国际时尚品牌代理公司。与意大利奢侈品采购集团及品牌方合作，主要从事奢侈品及时尚产品采购、品牌代理经营权和批发销售业务。专业经销与代理国际顶级品牌和时尚设计师品牌，包括时装、皮具、配饰、手表等商品。
+
+                </p>
+
+
+            </div>
+            <div id="guanyu" style="display:none;">
+                <p>
+                    致极国际贸易有限公司致力于成为亚太地区专业的奢侈品品牌的运营和管理的机构。在意大利，香港，北京等地均设有分支机构。我们在意大利与法国拥有多年的奢侈品及时尚产品采购经验，积累了稳定的货源与良好的声誉。不论是奢侈品牌还是高端时尚品牌，作为众多品牌的采购经销商，直接取得本季最新的产品订货信息。我们为所有志在投身奢侈品领域和高端时尚品牌的商家及投资人定制多种最为适合且完善的多品牌零售商业方案，涵盖各级时尚精品店，多品牌专营店，百货公司，品牌折扣店以及网上商城。我们也为客户向品牌进行预订服务，可抢先订购品牌下季度的新品系列，获得第一手的时尚资讯。同时我们提供限量精品订购，以帮助我们的客户在奢侈品时尚行业中占据领先地位。
+                    我们为亚洲客户提供线上查询与交易平台。 我们所有为您提供的产品都经过挑选与检验，让您为订货免去后顾之忧，更帮助亚洲客户在众多意大利品牌和商品中更高效地选购适合亚洲消费者喜好的商品。
+
+                </p>
+
+
+            </div>
+            <div id="jiameng" style="display:none;">
+
+    <img src="Webroot/Tpl/default/images/zsjm.jpg" />
+
+            </div>
+            <div id="lianxi" style="display:none;">
+             <div class="gleft" style="float:left;padding-left:20px;">
+            {:W('Message')}
+    </div>
+        <div class="gright" style="float:left;padding-left:30px;">
+        <ul>
+            <li>中国，北京，北京市西城区德胜门教场口街九号院6号楼三层</li>
+            <li><br></li>
+            <li>电话：400-009-8186</li>
+        </ul>
+        <ul>
+            <li>中国 香港
+    </li>
+            <li>致极国际贸易有限公司 香港</li>
+            <li>UNIT 04, 7/F, BRIGHT WAY TOWER,</li>
+            <li>NO. 33 MONG KOK ROAD, KOWLOON, HK</li>
+        </ul>
+        <ul>
+            <li>ITALY
+    </li>
+            <li>SPLENDID & CO INTERNATIONAL TRADING CO., LIMITED</li>
+            <li><br></li>
+            <li>ITALY</li>
+            <li>Via monte Santo 86 CINISELLO BAL SAMO(MI)</li>
+        </ul>
+        </div>
+        <div class="clear"></div>
+            </div>
+            <div id="jieshao" style="display:none;">
+
+                <p>商品采购与销售</p>
+
+                <p>
+                    我们是进口商，批发商和分销商的可靠合作伙伴，为您提供购买合理价格的品牌时装及配饰的机会。我们提供的商品为您提供可观的商业效益，以及作为时尚买手行业的视觉营销研究以增加专业的购买力。我们针对多个订单提供多个供应商和连锁商品销售业务的管理顾问服务。提供最新的产品选择及下季产品的预购。</p>
+
+                    <br>
+                <p>面向品牌的采购</p>
+
+                <p>
+                    顶级品牌向来十分抢手，并难以进入，特别是对小公司，甚至是中型公司。我们提供的最佳渠道进入世界上最大和最知名的品牌。通过在这个行业的多年经营建立了一个坚实的声誉，因此为您提供在时尚界的业务机会。我们所有为您获得的产品都经过挑选与检验，让您为订货免去后顾之忧。</p>
+
+                    <br>
+                <p>创新模式</p>
+
+                <p> 改变奢侈品传统代理模式，SPLENDID & CO提供网上查询与交易的方式，为客户提供便捷的查询与订购平台，更快了解我们的产品信息与库存，选择适合的并更快的获得你所需要的产品。
+
+                </p>
+                <br>
+                <p>适合的商品组合</p>
+
+                <p>
+                    针对零售商，商场，连锁门店的服务是用于选择适合客户的系列以确保理想的销售业绩。我们也通过选择品牌的商业策略来协助您制订具有商业策略的销售价格及促销活动。同时针对不同的销售点提供具有最好的商业和市场潜力的产品系列以及商品的搭配。
+
+                    </p>
+                    <br>
+                <p>高端设计师品牌咨询</p>
+
+                <p> 我们同时为意大利品牌和高端设计师品牌提供咨询和商业服务。通过品牌授予我们的独家经销权，我们可在指定的国外市场进行品牌营销及销售。在全球范围为任何公司或个人购买以及提供服务。
+
+                </p>
+                <br>
+                <p>国际专业人士</p>
+
+                <p>
+                    我们经过多年在奢侈品行业和时尚行业的积累，通过多年与客户合作，使得我们为国际公司和企业鉴定和进行快速准确的商业贸易。我们了解中国市场，以及对国内各区域的市场研究，提供具有商业策略的营销咨询，销售服务支持，战略采购咨询并建立新的销售点。
+    </p>
+                    <br>
+                <p>防止假冒商品</p>
+
+                <p>
+                    保护客户避免购买假冒商品，或者没有许可和授权的“近乎真品”的商品。区分真正的品牌商品和劣质仿制品，甚至是更危险的假冒产品是非常复杂的，也是非常必要的。而后者是非法，并会受到扣押和严厉的制裁，需要不惜一切代价来避免。
+    </p>
+                    <br>
+                <p>贵宾服务理念</p>
+
+                <p>
+                    针对在中国境内的客户，我们将为您提供中国海关“报关”服务。一旦您的预订生效，并缴清款项后，我们会立即将货品发往中国。按照客户需求，我们将为您提供上门服务。于此同时，我们也可为中国境内的客户提供“代理发货”服务，将货品递送至您所要求的目的地。即使客户未向我们订购货品，我们将同样为您提供周详的客户服务。
+
+                    </p>
+                    <br>
+                <p>仓储服务优势</p>
+
+                <p>致极国际贸易有限公司张家港营业部可为客户所购买的货品提供仓储服务。中国境内客户如想避免一次性缴付货品关税所带来的压力、保证更多流动资金，您可利用我们位于张家港免税区的仓储业务；以便灵活地支配您的资金。
+
+                <p>我们定将竭诚为中国客户提供优质服务。不单将优质的商品带进中国，更要将独家金牌服务传递给广大消费者。
+
+                </p>
+                <br>
+                <p>订货流程</p>
+
+                <p>1） 登陆www.splendid-co.com或www.splendidco.com.cn</p>
+
+                <p>2） 填写注册信息，公司介绍，详细的产品需求（品牌需求，产品价格，目标人群，销售区域，销售平台等）能帮助我们更好地为您提供定制服务。</p>
+
+                <p>3）
+                    提供详细的公司信息，我们的资深销售根据您的情况为您提供免费的咨询，站在您的商业角度，通过电话，Skype，QQ，msn或面对面进行沟通了解。（我们的咨询服务只提供给我们的注册用户，并提供相关公司与销售计划的企业用户，并不适用于私人购买）</p>
+
+                <p>4） 管理员确认通过您的注册申请后，您会收到系统发送的确认信息。</p>
+
+                <p>5） 登陆我们的订单系统，了解相关产品品牌信息，产品价格，折扣，最小起订量。并签订我们的合作协议。</p>
+
+                <p>6） 选择适合的产品offer，汇款至我们的香港公司账户，并将汇款单邮寄或Email给我们，我们将在7天内发货。</p>
+
+                <p>7） 香港公司将发送提货单，即可提货。（如有其它提货地点与汇款信息，请与我们销售经理联系）</p>
+
+                <br>
+                <p>关于注册致极国际</p>
+
+                <p>
+                    我们的注册流程，完全为了解您的生意模式与相关采购需求特别定制，另一方面，您对产品与市场的关注与重视，也正是我们对市场与客户的关注，我们将对我们留下认真详细信息的客户而对于非仔细的注册信息的客户提供更全面的服务。详细的注册信息让我们更快为您提供定制服务，以更快更紧密的开始合作。</p>
+
+                    <br>
+                <p>保密信息</p>
+
+                <p>我们将为您保密所有注册信息，并且不会分享和出售给任何第三方，或者用于其它与本注册无关的商业活动。</p>
+
+                <p>感谢您对我们的了解，以及对本公司的信任。</p>
+
+            </div>
+            <div class="brand">
+                <div class="lb">
+                    <p style="font-size:20px; margin:20px 0 0 0">品牌信息<span style="font-size:12px; margin-left:15px">了解来自意大利和法国的品牌</span>
+                    </p>
+
+                    <p style="font-size:12px; margin:22px 0 0 20px"><img src="Webroot/Tpl/default/images/italy.jpg"
+                                                                         width="37" height="25"/><a
+                            href="index.php?s=/Brand/index" style="color: #fff;">&nbsp;&nbsp;MADE IN ITALY</a></p>
+
+                    <p style="font-size:12px; margin:3px 0 0 20px"><img src="Webroot/Tpl/default/images/france.jpg"
+                                                                        width="37" height="25"/><a
+                            href="__APP__/Brand/index" style="color: #fff;">&nbsp;&nbsp;MADE IN ITALY</a></p>
+                </div>
+                <div class="rb">
+                    <p style="font-size:20px; margin:20px 0 0 5px; float:left">资讯订阅</p>
+
+                    <p style="font-size:12px; float:right; text-indent:0; margin-top:17px; width:184px; margin-right:42px">
+                        提供专为时尚界以及奢侈品行业<br/>人士服务的电子报</p>
+
+                    <div class="clear"></div>
+
+                    <form action="__APP__/Index/insertMail" method="post" id="subMail">
+                        <input type="text" id="checkmail" name="mail" value="邮箱地址" onfocus="this.value=''"
+                               style="margin-left:160px; color:#999; margin-top:10px; width:164px"/>
+                        <span><a href="javascript:checkform();" style="color:#fff;">提交</a></span>
+                    </form>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bottom">
+            <div style="float:right; margin-right:10px"><a href="" target="_blank">意大利时尚批发</a><span>|</span><a href=""
+                                                                                                               target="_blank">国际高端品牌代理</a><span>|</span><a
+                    href="" target="_blank">奢侈品批发</a><span>|</span><a href="" target="_blank">友情链接</a></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var $ = function (id) {
+        return document.getElementById(id);
+    };
+    function login() {
+        var form = $("logSubmit");
+        T.ajax.request(form.action, {
+            data:"name=" + encodeURI($("uname").value) + "&password=" + encodeURI($("upwd").value),
+            onsuccess:function (xhr, msg) {
+                if (msg == "-1") {
+                    alert("用户名或密码错误");
+                } else {
+                    alert("登陆成功");
+                    location.href = "index.php?s=/Quotation/index";
+                }
+            }
+        });
+    }
+    function checkform() {
+        var val = document.getElementById('checkmail');
+        if (!val.value || !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(val.value)) {
+            alert('邮箱地址格式错误！');
+        } else {
+            var form = document.getElementById('subMail');
+            T.ajax.request(form.action, {
+                data:"adress=" + $("checkmail").value,
+                onsuccess:function (xhr, msg) {
+                    if (msg == "-1") {
+                        alert("订阅失败");
+                    } else {
+                        alert('订阅成功！');
+                    }
+                }
+            });
+        }
+    }
+
+    function show(content) {
+        var show = document.getElementById(content);
+        var jieshao = document.getElementById('jieshao');
+        var guanyu = document.getElementById('guanyu');
+        var lianxi = document.getElementById('lianxi');
+        var jiameng = document.getElementById('jiameng');
+		var init = document.getElementById('init');
+
+        jieshao.style.display = 'none';
+        guanyu.style.display = 'none';
+        lianxi.style.display = 'none';
+        jiameng.style.display = 'none';
+		init.style.display = 'none';
+        show.style.display = 'block';
+    }
+
+    (function () {
+
+        var utils = function () {
+        };
+        utils.prototype = {
+            $:function (id) {
+                return document.getElementById(id);
+            },
+            cssStyleToDomStyle:function () {
+                var test = document.createElement('div').style,
+                        cache = {
+                            'float':test.cssFloat != undefined ? 'cssFloat' : test.styleFloat != undefined ? 'styleFloat' : 'float'
+                        };
+                return function (cssName) {
+                    return cache[cssName] || (cache[cssName] = cssName.toLowerCase().replace(/-./g, function (match) {
+                        return match.charAt(1).toUpperCase();
+                    }));
+                };
+            }(),
+            setStyle:function (element, name, value) {
+                element.style[this.cssStyleToDomStyle(name)] = value;
+            }
+        }
+        var ScrollImg = function () {
+            this.utils = new utils();
+            this.init();
+        };
+        ScrollImg.prototype = {
+            current:0,
+            init:function () {
+                this.data = this.getItem();
+                this.show();
+            },
+            getItem:function () {
+                var list = this.utils.$("itemimg").getElementsByTagName("img"), arr = [];
+                for (var i = 0, ci; ci = list[i++];) {
+                    arr.push(ci)
+                }
+                return arr;
+            },
+            hide:function () {
+                for (var i = 0, img; img = this.data[i++];) {
+                    img.style.display = "none";
+                }
+            },
+            _hiddenCurrent:function (fun) {
+                var item = this.data[this.current];
+                item.alpha = 100;
+                this.startMove(item, 0, fun);
+            },
+            next:function () {
+                var me = this;
+                this._hiddenCurrent(function () {
+                    me.data[me.current].style.display = "none";
+                    me.current = me.isend() ? 0 : me.current + 1;
+                    me.show();
+                });
+            },
+            isend:function () {
+                return this.data.length == this.current + 1;
+            },
+            pre:function () {
+                var me = this;
+                this._hiddenCurrent(function () {
+                    me.getCurrent().style.display = "none";
+                    me.current = me.isstart() ? me.getItem().length - 1 : me.current - 1;
+                    me._show();
+                });
+            },
+            show:function (index) {
+                var current = index || this.current;
+                var item = this.data[current];
+                this.utils.setStyle(item, "opacity", "0");
+                this.utils.setStyle(item, "filter", "alpha(opacity=0)");
+                item.style.display = "";
+                item.alpha = 0;
+                this.startMove(this.data[current], 100);
+            },
+            render:function () {
+                var me = this;
+                me.hide();
+                me.show();
+                this.go = setInterval(function () {
+                    me.next();
+                }, 6000);
+            },
+            startMove:function (obj, iTarget, callback) {
+                var me = this;
+                clearInterval(me.timer);
+                me.timer = setInterval(function () {
+                    var iSpeed = 0;
+                    if (obj.alpha < iTarget) {
+
+                        iSpeed = !!window.ActiveXObject ? 5 : 2;
+                    } else {
+                        iSpeed = !!window.ActiveXObject ? -5 : -2;
+                    }
+                    if (obj.alpha == iTarget) {
+                        clearInterval(me.timer);
+                        callback && callback();
+                    } else {
+                        obj.alpha += iSpeed;
+                        obj.style.filter = 'alpha(opacity:' + obj.alpha + ')';
+                        obj.style.opacity = obj.alpha / 100;
+                    }
+                }, 30);
+            }
+        }
+        var scroll = new ScrollImg();
+        scroll.render();
+        var utils = new utils();
+
+    })();
+
+
+</script>
+</body>
+</html>

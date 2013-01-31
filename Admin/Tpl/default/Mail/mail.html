@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+	<form action="__APP__/Mail/index" method="post">
+		<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+			<TR height=28>
+				<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+			</TR>
+			<TR>
+				<TD bgColor=#b1ceef height=1></TD>
+			</TR>
+			<TR height=20>
+				<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+			</TR>
+		</TABLE>
+
+		<table width="100%" border="1px">
+			<tr>
+				<td colspan="2"><a href="__APP__/Mail/toinsert">添加新邮件</a></td>
+				<td colspan="3"><a href="__APP__/Mail/sendMail">发送邮件</a></td>
+			</tr>
+			<tr>
+				<input type="text" id="search" name="keyword" value="{$keyword}"></input>
+				<input type="submit" id="search" value="搜索"></input>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td>报价单</td>
+				<td>状态</td>
+				<td>创建时间</td>
+				<td>操作</td>
+
+			</tr>
+			<volist name="list" id="mail">
+			<tr>
+				<td>{$mail.tittle}</td>
+				<td>{$mail.qname}</td>
+				<td><switch name="mail['status']"> <case value="0">未发送</case>
+					<case value="1">发送成功</case> <case value="2">发送失败</case></switch></td>
+				<td>{$mail.createtime|substr=0,10}</td>
+				<td><a href="__APP__/Mail/toinsert/id/{$mail.id}">编辑</a>|<a
+					href="__APP__/Mail/delete/id/{$mail.id}">删除</a>|<a
+					href="__APP__/Mail/sendMail/id/{$mail.id}">发送</a></td>
+			</tr>
+			</volist>
+		</table>
+	</form>
+	{$page}
+</BODY>
+</HTML>

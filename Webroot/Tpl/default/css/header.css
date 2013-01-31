@@ -1,0 +1,28 @@
+
+
+.clearfix, .container {display:block;}
+.clear {clear:both;}
+.header{height:122px;background-image:url(../images/header-bg.png);background-position:center;}
+.logo{float:left;padding-left:93px;padding-top:28px;}
+.choose-lang{padding-top:10px;padding-right:36px;float:right;}
+#lang-cn{display:inline-block;margin-right:10px;width: 28px;
+height: 22px;background-image:url(../images/china.jpg);}
+#lang-en{display:inline-block;width:30px;height:23px;background-image:url(../images/yingguoguoqi.png);}
+.urllink {float: right;margin: 5px 35px auto auto; position:relative;}
+.urllink ul {list-style-type: none;}
+.urllink li {float: left;margin-right: 15px;padding: 0 5px;font-weight: bold;font-size: 13px;color: #333;vertical-align: middle;}
+.urllink img {vertical-align: middle;}
+.urllink a {color: #636363;text-decoration: none;vertical-align: middle;}
+
+
+.navchange{position:absolute;z-index:100;}
+.somelogos{height:240px;width:543px;background-image:url('../images/bglogos.png');border:0px;float:left;}
+.rightbg{height:240px;width:412px;float:right;}
+.logos img{display:block;float:left; width:181px;height:60px;border:0px;}
+.chagepage img{display:block;float:right;width:180px;height:60px;border:0px;cursor:pointer;}
+.sourcelogos{border:0px;background-image:url('../images/cristinaeffebg.jpg');width:955px;height:238px;}
+.sourceconnectus{background-image:url('../images/connectus.jpg');width:905px;height:198px;padding: 40px 0px 0px 50px;}
+.sourceconnectus p{line-height:28px; font-size:12px;color:white;}
+.sourceshowus{background-image:url('../images/showus.jpg');width:905px;height:198px;padding: 40px 0px 0px 50px;}
+.contacttitle{width:140px;height:37px;background-image:url('../images/contacttitle.png');}
+.showustitle{width:367px;height:46px;background-image:url('../images/showustitle.png');}

@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+<table width="722" cellspacing="0" cellpadding="0" border="0" align="center" style="BACKGROUND-COLOR: #D8BDD0">
+    <tbody>
+    <tr>
+        <td>
+            <table width="717" cellspacing="0" cellpadding="0" border="0" align="center" class="divAll">
+                <tbody>
+                <tr>
+                    <td class="header" style="background-color: #4D093C;color:white;text-align: center;">
+                        <table width="100%" height="100%" cellspacing="5" cellpadding="5">
+                            <tr>
+                                <td style="font-size: 21px; font-weight: bold;text-align:center;color:white; letter-spacing: 1px;  line-height:100%;">
+                                    Your professional buying office in italy
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 13px; cursor: pointer;text-align:center;color:white;">如果邮件无法正常显示，请点击这里 If you can’t view the
+                                    image,click <a
+                                            href="http://<?php echo $_SERVER['HTTP_HOST']?>/index.php?s=/Mail/index/id/{$mail.id}"
+                                            target="_blank">here</a></td>
+                            </tr>
+                            <tr>
+                                <td style="margin-top: 6px; font-size: 13px; text-align:center;color:white;cursor: pointer;margin:0;">退订请点击这里 To
+                                    unsubscribe click <a
+                                            href="http://<?php echo $_SERVER['HTTP_HOST']?>/index.php?s=/Mail/tounsub"
+                                            target="_blank">here</a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="main">
+                        <table width="100%" cellspacing="0" cellpadding="5" border="0" align="center">
+                            <tbody>
+                            <tr>
+                                <td style="border-bottom:2px solid white;background-color: #D21F35;color: #FFFFFF;text-align:center;font-family: 宋体;font-size: 14px;">
+                                    欧洲同步报价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 奢侈品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    时尚专家
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="background-color: #7A7C79;">
+                            <tr>
+                                <td>
+                                    <img src="http://www.splendid-co.com//Admin/Tpl/default/images/offer01.png"
+                                                                             width="722" height="150">
+                                    <!--<img src="http://<?php echo $_SERVER['HTTP_HOST'];?>__TMPL__images/offer01.png"-->
+                                         <!--width="722" height="150">-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #7A7C79">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="717" cellspacing="0" cellpadding="5" border="0" align="center">
+                <tr>
+                    <td style="font-weight: 500;text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE: {$q.createtime|substr=0,10} ; NO.:{$mail.num}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <img src="http://<?php echo $_SERVER['HTTP_HOST']?>/Public/Uploads/m_{$mail.image1}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 500;text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$q.name}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="border: 2px solid white;font-size: 18px;"  width="575" cellspacing="5" cellpadding="0" border="0" align="center">
+                            <notempty name="q.name">
+                            <tr>
+                                <td>名称：{$q.name}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.xilie">
+                            <tr>
+                                <td>系列：{$q.xilie}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.leibie">
+                            <tr>
+                                <td>类别：{$q.leibie}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.leixing">
+                            <tr>
+                                <td>类型：{$q.leixing}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.yanse">
+                            <tr>
+                                <td>颜色：{$q.yanse}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.jiage">
+                            <tr>
+                                <td>价格：{$q.jiage}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.lingshoujia">
+                            <tr>
+                                <td>零售价：{$q.lingshoujia}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.ilingshoujia">
+                            <tr>
+                                <td>意大利零售价：{$q.ilingshoujia}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.nianling">
+                            <tr>
+                                <td>年龄：{$q.nianling}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.xingbie">
+                            <tr>
+                                <td>性别：{$q.xingbie}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.kuanshi">
+                            <tr>
+                                <td>款式：{$q.kuanshi}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.xinghao">
+                            <tr>
+                                <td>型号：{$q.xinghao}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.chima">
+                            <tr>
+                                <td>尺码：{$q.chima}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.caizhi">
+                            <tr>
+                                <td>材质：{$q.caizhi}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.zuixiao">
+                            <tr>
+                                <td>最小订单量：{$q.zuixiao}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.emiaoshu">
+                            <tr>
+                                <td>产品英文描述：{$q.emiaoshu}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.shuliang">
+                            <tr>
+                                <td>数量：{$q.shuliang}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.source">
+                            <tr>
+                                <td>货源：{$q.source}</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.param1">
+                            <tr>
+                                <td>整单打包</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.param2">
+                            <tr>
+                                <td>多种尺码和颜色</td>
+                            </tr>
+                            </notempty>
+                            <notempty name="q.param3">
+                                <tr>
+                            <td>常年供给</td>
+                                </tr>
+                            </notempty>
+                            <notempty name="q.param4">
+                                <tr>
+                            <td>现货供给</td>
+                                </tr>
+                            </notempty>
+                            <notempty name="q.param5">
+                                <tr>
+                            <td>可立即付运</td>
+                                </tr>
+                            </notempty>
+                            <notempty name="q.param6">
+                                <tr>
+                            <td>文件证书及其所有配件齐全</td>
+                                </tr>
+                            </notempty>
+                            <notempty name="q.param7">
+                                <tr>
+                            <td>请下载附件查阅更多信息</td>
+                                </tr>
+                            </notempty>
+                            <notempty name="q.param8">
+                                <tr>
+                            <td>订单详情请与我们取得联系</td>
+                                </tr>
+                            </notempty>
+                            <notempty name="q.miaoshu">
+                                <tr>
+                            <td>{$q.miaoshu}</td>
+                                </tr>
+                            </notempty>
+                            <notempty name="mail.content">
+                                <tr>
+                            <td>{$mail.content}</td>
+                                </tr>
+                            </notempty>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="717" cellspacing="0" cellpadding="0" border="0" align="center">
+                <tr>
+                    <td style="color: rgb(77, 9, 60);text-align: center;">
+                        <a href="http://www.splendid-co.com/index.php?s=/Index/detail" target="_blank"><span style="font-size: 12px;">如果没有您想要的offer,请联系我们，告知我们您想要的品牌和商品</span></a><br>
+                        <span>please check&nbsp;</span><a
+                        					href="http://<?php echo $_SERVER['HTTP_HOST']?>/Public/Uploads/{$q.ufile}"
+                        					target="_blank"><img
+                        					src="http://<?php echo $_SERVER['HTTP_HOST']?>/__TMPL__/images/offer03.png" />
+                        				</a><br>
+                        <span>请浏览&nbsp;</span><a
+                        					href="http://<?php echo $_SERVER['HTTP_HOST']?>/Public/Uploads/{$q.ufile}"
+                        					target="_blank"><img
+                        					src="http://<?php echo $_SERVER['HTTP_HOST']?>/__TMPL__/images/offer04.jpg" />
+                        				</a>
+                        <br>
+                        Visit our website
+                        <br>
+                        <a href="http://www.splendid-co.com" target="_blank"><span>http://www.splendid-co.com</span>
+                        				</a>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

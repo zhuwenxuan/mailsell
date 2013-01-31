@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<script type="text/javascript">
+    String.prototype.trim = function(){
+	     return this.replace(/^\s*|\s*$/ig,"");
+	}
+	function saveOrder(id) {
+		var name = document.getElementById(id).value.trim();
+		if (/^\d+$/.test(name))   
+	    {   
+			window.open("__APP__/Cate/reOrder/num/"+name+"/id/"+id,'_self');
+	    }else{
+	    	alert("请输入数字！");
+	    }
+	}
+</script>
+<BODY>
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<TR height=28>
+			<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+		</TR>
+		<TR>
+			<TD bgColor=#b1ceef height=1></TD>
+		</TR>
+		<TR height=20>
+			<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+		</TR>
+	</TABLE>
+
+	<table width="100%" border="1px">
+		<tr>
+			<td colspan="4"><a href="__APP__/Cate/toInsert/">添加分类</a>
+			</td>
+		</tr>
+		<tr>
+			<td width="20%">排序</td>
+			<td width="20%">名称</td>
+			<td width="20%">介绍</td>
+			<td width="40%">操作</td>
+		</tr>
+		<volist name="list" id="cate">
+		<tr>
+			<td><input id="{$cate.id}" name="orderBy" value="{$cate.orderBy}" /></td>
+			<td >{$cate.name}&nbsp;</td>
+			<td>{$cate.intro}&nbsp;</td>
+			<td><a href="__APP__/Cate/delete/id/{$cate.id}">删除</a>&nbsp;&nbsp;<a
+				href="__APP__/Cate/toInsert/id/{$cate.id}">修改</a>&nbsp;&nbsp;<a
+				href="#" onclick="javascript:saveOrder({$cate.id})">保存</a>
+			</td>
+		</tr>
+		</volist>
+	</table>
+</BODY>
+</HTML>

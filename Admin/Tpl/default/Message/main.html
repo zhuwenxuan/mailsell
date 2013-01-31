@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<TR height=28>
+			<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+		</TR>
+		<TR>
+			<TD bgColor=#b1ceef height=1></TD>
+		</TR>
+		<TR height=20>
+			<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+		</TR>
+	</TABLE>
+
+	<table width="100%" border="1px">
+		<tr>
+			<td width="10%">姓名</td>
+			<td width="10%">电话</td>
+			<td width="20%">地址</td>
+			<td width="10%">省份</td>
+			<td width="10%">城市</td>
+			<td width="10%">邮件</td>
+			<td width="10%">内容</td>
+			<td width="10%">操作</td>
+		</tr>
+		<volist name="list" id="message">
+		<tr>
+			<td>{$message.name}</td>
+			<td>{$message.telephone}</td>
+			<td>{$message.address}</td>
+			<td>{$message.province}</td>
+			<td>{$message.city}</td>
+			<td>{$message.email}</td>
+			<td>{$message.intro }</td>
+			<td><a href="__APP__/Message/delete/id/{$message.id}">删除</a></a></td>
+		</tr>
+		</volist>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<form action="__APP__/Mail/resend" method="post"
+	onsubmit="javascript:return validate()" enctype="multipart/form-data">
+	<table width="100%" border="1px">
+	<input type="hidden" name="mailid" value="{$mailid}"/>
+		<tr>
+			<td>姓名</td>
+			<td>邮箱</td>
+		</tr>
+		<volist name="failes" id="member">
+		<tr>
+		<input type="hidden" name="memberid[]" value="{$member.id}"/>
+			<td>{$member.name}</td>
+			<td>{$member.email}</td>
+		</tr>
+		</volist>
+	</table>
+	<input type="submit" value="重新发送"/>
+</form>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+</head>
+<body>
+	<style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0 auto;
+	padding: 0;
+	font-size: 14px;
+	font-family: 宋体;
+}
+
+img {
+	border: 0px;
+	cursor: pointer;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.container {
+	margin: 0px auto;
+	padding: 0px;
+	width: 717px;
+	height: auto;
+	background: rgb(216, 189, 208);
+	overflow: auto;
+}
+
+.header {
+	width: 717px;
+	height: 291px;
+}
+
+.header1 {
+	width: 717px;
+	height: 95px;
+	background: rgb(77, 9, 60);
+}
+
+.header1 p {
+	color: #FFF;
+	font-family: 黑体;
+	text-align: center;
+}
+
+.header2 {
+	width: 717px;
+	height: 23px;
+	background: rgb(210, 31, 53);
+	border-bottom: #FFF 2px solid;
+}
+
+.header2 p {
+	color: #FFF;
+	font-family: 黑体;
+	text-align: center;
+	font-size: 14px;
+	word-spacing: 41px;
+	vertical-align: middle;
+	line-height: 23px;
+}
+
+.header3 {
+	width: 717px;
+	height: 150px;
+	background: url(../images/offer01.png);
+}
+
+.header4 {
+	width: 717px;
+	height: 22px;
+	background: rgb(122, 124, 121);
+}
+
+.content {
+	width: 717px;
+	height: auto;
+}
+
+.content p {
+	margin: 20px auto 20px 70px;
+	font-weight: 500;
+}
+
+.showimage {
+	text-align: center;
+}
+
+.showdetail {
+	border: #FFF 2px solid;
+	width: 571px;
+	margin: 0 auto;
+	overflow: auto;
+	padding-bottom: 20px;
+}
+
+.textdetail {
+	line-height: 30px;
+	margin: 20px auto 35px 25px;
+}
+
+.textdetail li {
+	font-size: 18px;
+	letter-spacing: 4px;
+}
+
+.imagesdetail {
+	margin: 20px auto auto 25px;
+}
+
+.imagesdetail li {
+	float: left;
+	margin-right: 2px;
+}
+
+.footer {
+	padding-top: 15px;
+	padding-bottom: 80px;
+}
+
+.footer p {
+	text-align: center;
+	margin-top: 20px;
+	height: 40px;
+}
+
+.footer span {
+	vertical-align: middle;
+	font-family: 黑体;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.footer img {
+	vertical-align: middle;
+}
+</style>
+	<div class="container">
+		<div class="header">
+			<div class="header1">
+				<p
+					style="font-size: 21px; font-weight: bold; padding-top: 15px; letter-spacing: 1px;">Your
+					professional buying office in italy</p>
+			</div>
+			<div class="header2">
+				<p>欧洲同步报价 奢侈品 时尚专家</p>
+			</div>
+			<div
+				style="width: 717px; height: 200px; background: url(http://<?php echo $_SERVER['HTTP_HOST'];?>/Webroot/__TMPL__images/offer01.png);"></div>
+			<div class="header4"></div>
+			<div class="header5"></div>
+
+		</div>
+		<div class="content">
+			<p>DATE: {$q.createtime|substr=0,10} ; NO.: {$mail.num}</p>
+			<div class="showimage">
+				<img
+					src="http://<?php echo $_SERVER['HTTP_HOST']?>/Public/Uploads/m_{$mail.image1}"
+					width="575" height="321" />
+			</div>
+			<p>{$q.name}</p>
+			<div class="showdetail">
+				<ul class="textdetail">
+					<notempty name="q.name">
+					<li>名称：{$q.name}</li>
+					</notempty>
+					<notempty name="q.xilie">
+					<li>系列：{$q.xilie}</li>
+					</notempty>
+					<notempty name="q.leibie">
+					<li>类别：{$q.leibie}</li>
+					</notempty>
+					<notempty name="q.leixing">
+					<li>类型：{$q.leixing}</li>
+					</notempty>
+					<notempty name="q.yanse">
+					<li>颜色：{$q.yanse}</li>
+					</notempty>
+					<notempty name="q.jiage">
+					<li>价格：{$q.jiage}</li>
+					</notempty>
+					<notempty name="q.lingshoujia">
+					<li>零售价：{$q.lingshoujia}</li>
+					</notempty>
+					<notempty name="q.ilingshoujia">
+					<li>意大利零售价：{$q.ilingshoujia}</li>
+					</notempty>
+					<notempty name="q.nianling">
+					<li>年龄：{$q.nianling}</li>
+					</notempty>
+					<notempty name="q.xingbie">
+					<li>性别：{$q.xingbie}</li>
+					</notempty>
+					<notempty name="q.kuanshi">
+					<li>款式：{$q.kuanshi}</li>
+					</notempty>
+					<notempty name="q.xinghao">
+					<li>型号：{$q.xinghao}</li>
+					</notempty>
+					<notempty name="q.chima">
+					<li>尺码：{$q.chima}</li>
+					</notempty>
+					<notempty name="q.caizhi">
+					<li>材质：{$q.caizhi}</li>
+					</notempty>
+					<notempty name="q.zuixiao">
+					<li>最小订单量：{$q.zuixiao}</li>
+					</notempty>
+					<notempty name="q.emiaoshu">
+					<li>产品英文描述：{$q.emiaoshu}</li>
+					</notempty>
+					<notempty name="q.shuliang">
+					<li>数量：{$q.shuliang}</li>
+					</notempty>
+					<notempty name="q.source">
+					<li>货源：{$q.source}</li>
+					</notempty>
+					<notempty name="q.param1">
+					<li>整单打包</li>
+					</notempty>
+					<notempty name="q.param2">
+					<li>多种尺码和颜色</li>
+					</notempty>
+					<notempty name="q.param3">
+					<li>常年供给</li>
+					</notempty>
+					<notempty name="q.param4">
+					<li>现货供给</li>
+					</notempty>
+					<notempty name="q.param5">
+					<li>可立即付运</li>
+					</notempty>
+					<notempty name="q.param6">
+					<li>文件证书及其所有配件齐全</li>
+					</notempty>
+					<notempty name="q.param7">
+					<li>请下载附件查阅更多信息</li>
+					</notempty>
+					<notempty name="q.param8">
+					<li>订单详情请与我们取得联系</li>
+					</notempty>
+					<notempty name="q.miaoshu">
+					<li>{$q.miaoshu}</li>
+					</notempty>
+				</ul>
+				<ul class="imagesdetail">
+					<li>{$mail.content}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+            <p style="color: rgb(77, 9, 60);">
+                <span>紧俏商品，如有适合您的offer请及时订购。如果需要采购指定品牌和商品，请与我们联系！400-009-8186</span>
+            </p>
+			<p style="color: rgb(77, 9, 60);">
+				<span>please check&nbsp;</span><a
+					href="http://<?php echo $_SERVER['HTTP_HOST']?>/Public/Uploads/{$q.ufile}"><img
+					src="http://<?php echo $_SERVER['HTTP_HOST']?>/Webroot/__TMPL__/images/offer03.png" />
+				</a>
+			</p>
+			<p style="color: rgb(77, 9, 60);">
+				<span>请浏览&nbsp;</span><a
+					href="http://<?php echo $_SERVER['HTTP_HOST']?>/Public/Uploads/{$q.ufile}"><img
+					src="http://<?php echo $_SERVER['HTTP_HOST']?>/Webroot/__TMPL__/images/offer04.jpg" />
+				</a>
+			</p>
+			<p style="color: rgb(77, 9, 60);">
+				<span>Visit our website</span>
+			</p>
+			<p style="color: rgb(12, 101, 142);">
+				<a href="http://www.splendidico.com.cn"><span>http://www.splendidico.com.cn</span>
+				</a>
+			</p>
+		</div>
+	</div>
+
+</body>
+</html>

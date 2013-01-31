@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+function validate(){
+	var name = document.getElementById("name").value;
+	var intro = document.getElementById("intro").value;
+	if(name.trim()==""){
+		alert("请填写分类名称。");
+		return false;
+	}
+	if(intro.trim()==""){
+		alert("请填写分类描述。");
+		return false;
+	}
+}
+</script>
+</HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TR height=28>
+    <TD background=__TMPL__/images/title_bg1.jpg>当前位置: </TD></TR>
+  <TR>
+    <TD bgColor=#b1ceef height=1></TD></TR>
+  <TR height=20>
+    <TD background=__TMPL__/images/shadow_bg.jpg></TD></TR></TABLE>
+
+  
+<form action="__APP__/Cate/insert" method="post" onsubmit="javascript:return validate()"
+	enctype="multipart/form-data">
+	<table cellpadding=3 cellspacing=3>
+		<td><input type="hidden" name="id" id="id" value='{$cate.id}'></td>
+		<tr>
+			<td>分类名称：</td>
+			<td><input type="text" name="name" id="name" value="{$cate.name}"></td>
+		</tr>
+		<tr>
+			<td>介绍</td>
+			<td><input type="text" name="intro" id="intro" value="{$cate.intro}"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="提交"></td>
+			<td><input type="reset" value="取消"></td>
+		</tr>
+	</table>
+</form>
+
+</BODY></HTML>

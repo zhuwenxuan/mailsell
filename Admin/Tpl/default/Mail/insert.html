@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" charset="utf-8"
+	src="__PUBLIC__/ueditor/editor_config.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="__PUBLIC__/ueditor/editor_all.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="__PUBLIC__/ueditor/themes/default/ueditor.css" />
+<script type="text/javascript">
+	function validate() {
+		var name = document.getElementById("name").value;
+		var city = document.getElementById("city").value;
+		var img = document.getElementById("img").value;
+		var imgpre = document.getElementById("imgpre").value;
+		if (name.trim() == "") {
+			alert("请填写品牌名称。");
+			return false;
+		}
+		if (city.trim() == "") {
+			alert("请填写品牌地区。");
+			return false;
+		}
+		if (img.trim() == "" && imgpre.trim() == "") {
+			alert("请上传品牌图片。");
+			return false;
+		}
+	}
+</script>
+</HEAD>
+<BODY>
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<TR height=28>
+			<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+		</TR>
+		<TR>
+			<TD bgColor=#b1ceef height=1></TD>
+		</TR>
+		<TR height=20>
+			<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+		</TR>
+	</TABLE>
+
+	<form action="__APP__/Mail/insert" method="post"
+		onsubmit="javascript:return validate()" enctype="multipart/form-data">
+		<table cellpadding=3 cellspacing=3>
+			<td><input type="hidden" name="id" id="id" value='{$mail.id}'>
+			</td>
+			<tr>
+				<td>邮件主题：</td>
+				<td><input type="text" name="tittle" id="tittle"
+					value="{$mail.tittle}"></td>
+			</tr>
+			<tr>
+				<td>编号：</td>
+				<td><input type="text" name="num" id="num"
+					value="{$mail.num}"></td>
+			</tr>
+			<tr>
+				<td>图片1：</td>
+				<td><input type="file" name="image1" id="image1"
+					value="{$mail.image1}"> 预览 <img id="imgpre"
+					src="__PUBLIC__/Uploads/m_{$mail.image1}"></td>
+
+			</tr>
+			<tr>
+				<td class="left_title_1">选择报价单：</td>
+				<td><select name="qid" id="qid">
+						<option value="">选择报价单</option>
+						<volist name="qs" id="q">
+						<option value="{$q.id}|{$q.name}"
+							<if condition="($q['id'] == $mail['qid'])">
+							selected='selected'<else /></if>
+							>{$q.name}
+						</option>
+						</volist>
+				</select></td>
+			</tr>
+			<tr>
+				<td>介绍</td>
+				<td><script type="text/plain" id="editor" style="width:1000px;">
+						{$mail.content}
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="提交"></td>
+				<td><input type="reset" value="取消"></td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		var ue = new UE.ui.Editor({
+			textarea : "content",
+			toolbars:[
+            ['fullscreen', 'source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch','autotypeset', '|',
+                'blockquote', '|', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist','selectall', 'cleardoc', '|', 'customstyle',
+                'paragraph', '|','rowspacingtop', 'rowspacingbottom','lineheight', '|','fontfamily', 'fontsize', '|','insertimage',
+                'directionalityltr', 'directionalityrtl', '|', '', 'indent', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
+                'link', 'unlink', 'anchor', '|',
+                'horizontal', 'date', 'time', 'spechars', '|',
+                'print', 'preview', 'searchreplace']]
+		});
+		ue.render('editor');
+        </script>
+</body>
+</html>

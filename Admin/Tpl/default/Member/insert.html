@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<TR height=28>
+			<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+		</TR>
+		<TR>
+			<TD bgColor=#b1ceef height=1></TD>
+		</TR>
+		<TR height=20>
+			<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+		</TR>
+	</TABLE>
+
+
+	<form action="__APP__/Member/insert" method="post"
+		enctype="multipart/form-data">
+		<table cellpadding=3 cellspacing=3>
+			<tr>
+				<td><input type="hidden" name="id" id="id" value='{$member.id}'>
+				</td>
+			</tr>
+			<tr>
+				<td>会员名：</td>
+				<td>{$member.name}</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td>{$member.password}</td>
+			</tr>
+			<tr>
+				<td>邮箱地址：</td>
+				<td>{$member.email}</td>
+			</tr>
+			<tr>
+				<td>公司名称：</td>
+				<td>{$member.compayname}</td>
+			</tr>
+			<tr>
+				<td>姓名：</td>
+				<td>{$member.realname}</td>
+			</tr>
+			<tr>
+				<td>职位：</td>
+				<td>{$member.position}</td>
+			</tr>
+			<tr>
+				<td>公司地址：</td>
+				<td>{$member.address}</td>
+			</tr>
+			<tr>
+				<td>邮编号码：</td>
+				<td>{$member.zip}</td>
+			</tr>
+			<tr>
+				<td>城市：</td>
+				<td>{$member.city}</td>
+			</tr>
+			<tr>
+				<td>省份：</td>
+				<td>{$member.provinces}</td>
+			</tr>
+			<tr>
+				<td>国家：</td>
+				<td>{$member.country}</td>
+			</tr>
+			<tr>
+				<td>联系方式：</td>
+				<td>{$member.phone}</td>
+			</tr>
+			<tr>
+				<td>传真：</td>
+				<td>{$member.fax}</td>
+			</tr>
+			<tr>
+				<td>QQ：</td>
+				<td>{$member.qq}</td>
+			</tr>
+			<tr>
+				<td>MSN：</td>
+				<td>{$member.msn}</td>
+			</tr>
+			<tr>
+				<td>Skype：</td>
+				<td>{$member.skype}</td>
+			</tr>
+			<tr>
+				<td>网址：</td>
+				<td>{$member.website}</td>
+			</tr>
+			<tr>
+				<td>活动和操作：</td>
+				<td>{$member.activities}</td>
+			</tr>
+			<tr>
+				<td>计划：</td>
+				<td>{$member.planning}</td>
+			</tr>
+			<tr>
+				<td>项目：</td>
+				<td>{$member.project}</td>
+			</tr>
+			<tr>
+				<td>附件：</td>
+				<td><a href="__PUBLIC__/Uploads/{$member.attachment}">下载</a>
+				</td>
+			</tr>
+			<tr>
+				<td align="center"><a
+					href="__APP__/Member/toggle/id/{$member.id}"><if
+							condition="$member['status'] eq 1"> 禁用<else />审核通过</if> </a></td>
+			</tr>
+		</table>
+	</form>
+
+</BODY>
+</HTML>

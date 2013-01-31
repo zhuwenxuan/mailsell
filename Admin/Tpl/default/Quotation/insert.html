@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/tangram/tangram_all.js"></script>
+<style type='text/css'>
+.tangram-calendar {
+	height: 164px;
+	width: 178px;
+	font-size: 12px;
+	text-align: center;
+	border: 5px solid #EEEEEE;
+	background: #FFF;
+}
+
+.tangram-calendar-title {
+	position: relative;
+	background-color: #EEEEEE;
+}
+
+.tangram-calendar-label {
+	width: 100%;
+	background-color: #EEEEEE;
+}
+
+.tangram-calendar-prev {
+	position: absolute;
+	text-align: center;
+	cursor: pointer;
+	left: 0px;
+	top: 0px;
+	width: 30px;
+}
+
+.tangram-calendar-next {
+	position: absolute;
+	text-align: center;
+	cursor: pointer;
+	right: 0px;
+	top: 0px;
+	width: 30px;
+}
+
+.tangram-calendar-table {
+	width: 100%;
+	height: 100%;
+}
+
+.tangram-calendar-week td {
+	cursor: default;
+	font-weight: bold;
+	font-size: 12px;
+	background-color: #EEEEEE;
+}
+
+.tangram-calendar-date td {
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid #FAFAFA;
+}
+
+td.tangram-calendar-date-current {
+	border: 1px solid #A00000;
+}
+
+.tangram-calendar-date-other {
+	color: #ccc;
+}
+
+.tangram-calendar-disabled {
+	background: #CCCCCC;
+}
+
+.tangram-calendar-date-disable {
+	background: gray;
+}
+
+td.tangram-calendar-hover {
+	border: 1px solid blue;
+}
+
+table.show {
+	margin: 0 auto;
+	width: 800px;
+	border-collapse: collapse;
+	border: 1px solid #666;
+}
+
+table.show caption {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+table.show th,table.show td {
+	padding: 6px;
+	border: 1px solid #666;
+}
+
+table.show th {
+	background-color: #679DDF;
+	color: white;
+}
+
+table.show td {
+	text-align: center;
+}
+
+.wrap {
+	text-align: center;
+	margin-bottom: 40px;
+}
+    /*baidu.ui.Suggestion*/
+    .tangram-suggestion-main{
+        z-index: 1200;
+    }
+    .tangram-suggestion{
+        cursor : default;
+        border : #7F9DB9 solid 1px;
+        background:#FFF;
+    }
+    .tangram-suggestion table{
+        cursor : default;
+        width : 100%;
+        font-size : 14px;
+    }
+    .tangram-suggestion-current{
+        background : #C7DEED;
+        color : #fff;
+    }
+    .tangram-suggestion-prepend{
+        padding:2px;
+        color:#c0c0c0;
+        font:12px verdana;
+    }
+    .tangram-suggestion-append{
+        padding:2px;
+        color:#c0c0c0;
+        font:12px verdana;
+        text-align:right;
+    }
+</style>
+<script type="text/javascript">
+</script>
+</HEAD>
+<BODY>
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<TR height=28>
+			<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+		</TR>
+		<TR>
+			<TD bgColor=#b1ceef height=1></TD>
+		</TR>
+		<TR height=20>
+			<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+		</TR>
+	</TABLE>
+
+
+	<form action="__APP__/Quotation/insert" method="post"
+		onsubmit="javascript:return validate()" enctype="multipart/form-data">
+		<table cellpadding=3 cellspacing=3>
+			<td><input type="hidden" name="id" id="id" value='{$quota.id}'>
+			</td>
+			<tr>
+				<td>名称：</td>
+				<td><input type="text" name="name" id="name"
+					value="{$quota.name}"></td>
+			</tr>
+			<tr>
+				<td class="left_title_1">品牌：</td>
+				<td>
+                    <input type="text" name="bname" id="bname" value="{$quota.bname}" width="300" size="30">
+					<input type="hidden" name="bid" id="bid" value="{$quota.bid}" width="300" size="30">
+
+                </td>
+			</tr>
+			<tr>
+				<td>分类</td>
+				<td><volist name="clist" id="cate"> <input
+						name="cid[]" type="checkbox" value="{$cate.id}|{$cate.name}"<?php
+					if(in_array($cate["id"],$cateids)): ?>checked="true"<?php else: ?>
+					<?php endif; ?>>{$cate.name} </volist>
+				</td>
+			</tr>
+			<tr>
+				<td>系列</td>
+				<td><input type="text" name="xilie" id="xilie"
+					value="{$quota.xilie}"></td>
+			</tr>
+			<tr>
+				<td>类别</td>
+				<td><input type="text" name="leibie" id="leibie"
+					value="{$quota.leibie}"></td>
+			</tr>
+			<tr>
+				<td>颜色</td>
+				<td><input type="text" name="yanse" id="yanse"
+					value="{$quota.yanse}"></td>
+			</tr>
+			<tr>
+				<td>价格</td>
+				<td><input type="text" name="jiage" id="jiage"
+					value="{$quota.jiage}"></td>
+			</tr>
+			<tr>
+				<td>零售价</td>
+				<td><input type="text" name="lingshoujia" id="lingshoujia"
+					value="{$quota.lingshoujia}"></td>
+			</tr>
+			<tr>
+				<td>意大利零售价</td>
+				<td><input type="text" name="ilingshoujia" id="ilingshoujia"
+					value="{$quota.ilingshoujia}"></td>
+			</tr>
+			<tr>
+				<td>年龄</td>
+				<td><input type="text" name="nianling" id="nianling"
+					value="{$quota.nianling}"></td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td><input type="text" name="xingbie" id="xingbie"
+					value="{$quota.xingbie}"></td>
+			</tr>
+			<tr>
+				<td>款式</td>
+				<td><input type="text" name="kuanshi" id="kuanshi"
+					value="{$quota.kuanshi}"></td>
+			</tr>
+			<tr>
+				<td>型号</td>
+				<td><input type="text" name="xinghao" id="xinghao"
+					value="{$quota.xinghao}"></td>
+			</tr>
+			<tr>
+				<td>尺码</td>
+				<td><input type="text" name="chima" id="chima"
+					value="{$quota.chima}"></td>
+			</tr>
+			<tr>
+				<td>材质</td>
+				<td><input type="text" name="caizhi" id="caizhi"
+					value="{$quota.caizhi}"></td>
+			</tr>
+			<tr>
+				<td>最小订单量</td>
+				<td><input type="text" name="zuixiao" id="zuixiao"
+					value="{$quota.zuixiao}"></td>
+			</tr>
+			<tr>
+				<td>产品英文描述</td>
+				<td><input type="text" name="emiaoshu" id="emiaoshu"
+					value="{$quota.emiaoshu}"></td>
+			</tr>
+			<tr>
+				<td>数量</td>
+				<td><input type="text" name="shuliang" id="shuliang"
+					value="{$quota.shuliang}"></td>
+			</tr>
+			<tr>
+				<td>补充项</td>
+				<td><input type="checkbox" name="param1" id="param1"
+					value="{$quota.param1}">整单打包
+				
+				<input type="checkbox" name="param2" id="param2"
+					value="{$quota.param2}">多种尺码和颜色
+				
+				<input type="checkbox" name="param3" id="param3"
+					value="{$quota.param3}">常年供给
+				
+				<input type="checkbox" name="param4" id="param4"
+					value="{$quota.param4}">现货供给
+				
+				<input type="checkbox" name="param5" id="param5"
+					value="{$quota.param5}">可立即付运
+				
+				<input type="checkbox" name="param6" id="param6"
+					value="{$quota.param6}">文件证书及其所有配件齐全
+				
+				<input type="checkbox" name="param7" id="param7"
+					value="{$quota.param7}">请下载附件查阅更多信息
+				
+				<input type="checkbox" name="param8" id="param8"
+					value="{$quota.param8}">订单详情请与我们取得联系</td>
+			</tr>
+			<tr>
+				<td>上传报价单</td>
+				<td><input type="file" name="ufile" id="ufile"
+					value="{$quota.ufile}">
+				</td>
+			</tr>
+			<tr>
+				<td>有效时间</td>
+				<td><input type="text" name="deadline" id="end"
+					value="{$quota.deadline}">
+				</td>
+			</tr>
+						<tr>
+				<td>描述</td>
+				<td><textarea  name="miaoshu" id="intro"
+					cols="60" rows="6" style="border:1px  solid #7c7c7e;">{$quota.miaoshu}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="提交"></td>
+				<td><input type="reset" value="取消"></td>
+			</tr>
+		</table>
+	</form>
+	<script type='text/javascript'>
+		var inend = new baidu.ui.DatePicker({});
+		inend.render("end");
+
+        var instance = new baidu.ui.Suggestion({
+		    itemsId:[],
+            getData: function(word){
+                var SD = [],
+                       FD = [],
+					   IDs
+                        me = this;
+                T.ajax.get("__APP__/Brand/search/key="+word,function(xhr,msg){
+                    if(xhr.status==200){
+                        var arr = eval('('+msg+')');
+                        for(var i=0,a;a=arr[i++];){
+                            SD.push(a.name);
+							me.itemsId.push(a.id)
+                        }
+                        baidu.array.each(SD, function(data, index){
+                            if(word && data.indexOf(word)!= -1){
+                                FD.push(data.replace(word, "<span style='color:red'>"+word+"</span>"));
+                            }
+                        });
+                        me.appendHTML = "总共"+FD.length+"条";me.show(word,FD);
+                    }
+                });
+            }, onbeforepick: function(evt){
+                var div = document.createElement('div');
+                div.innerHTML = evt.data.item.content;
+				T.g("bid").value=this.itemsId[evt.data.index];
+                evt.data.item.content = evt.data.item.value = baidu.dom.getText(div);
+            }
+        });
+        instance.render("bname");
+	</script>
+</BODY>
+</HTML>

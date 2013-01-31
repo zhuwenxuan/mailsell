@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>用户注册</title>
+    <style>
+        input {
+            width: 180px;
+            height20
+        }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="Webroot/Tpl/default/css/brand.css"/>
+    <style>
+        .input[type="text"], .input[type="password"] {
+            border: 1px solid #7c7c7e;
+            height: 18px;
+            line-height: 18px;
+            margin: 0 12px 0 0;
+            padding: 3px 5px;
+            width: 200px;
+            float: left;
+            color: #666666
+        }
+    </style>
+    <script type="text/javascript">
+        function validate() {
+            var name = document.getElementById("name").value;
+            var city = document.getElementById("city").value;
+            var img = document.getElementById("img").value;
+            var imgpre = document.getElementById("imgpre").value;
+            if (name.trim() == "") {
+                alert("请填写品牌名称。");
+                return false;
+            }
+            if (city.trim() == "") {
+                alert("请填写品牌地区。");
+                return false;
+            }
+            if (img.trim() == "" && imgpre.trim() == "") {
+                alert("请上传品牌图片。");
+                return false;
+            }
+        }
+
+    </script>
+</head>
+<div class="wrap">
+    <div class="head">
+        <div class="lang">
+            <img src="Webroot/Tpl/default/images/eng.jpg" style="cursor:pointer;"/>
+            <img src="Webroot/Tpl/default/images/china.jpg" style="cursor:pointer;"/>
+        </div>
+        <div class="logo">
+            <img src="Webroot/Tpl/default/images/logo.png">
+        </div>
+        <div class="urllink">
+            <ul>
+                <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a href="index.php">首 页</a></li>
+                <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a href="index.php?s=/Index/detail">关于我们</a>
+                </li>
+                <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a href="index.php?s=/Index/detail">业务介绍</a>
+                </li>
+                <li><img src="Webroot/Tpl/default/images/youjian.png" border="0"/><a href="index.php?s=/Index/detail">联系我们</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form action="__APP__/Index/doInsertUser" method="post" id="form1" enctype="multipart/form-data" onsubmit="javascript:return validate()">
+    <div class=" login" style="margin-top:20px; padding:15px; color:#7B7B7B;background:#fff;">
+    <table width="100%" cellspacing="8" cellpadding="0" border="0" style=" margin-left:0px;">
+
+        <tr>
+            <td width="266px"></td>
+            <td width="70px;">&nbsp;</td>
+            <td style="font-size:16px; text-align:left;">注册
+                <span>（*必填）</span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*用户名：</span></td>
+            <td style="text-align:left;"><input name="name" id="name" class="input" type="text" maxlength="10"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*密码：</td>
+            <td style="text-align:left;"><input name="password" id="password" class="input" type="password"
+                                                maxlength="10"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*确认密码：</td>
+            <td style="text-align:left;"><input class="input" type="password" id="passwords" maxlength="50"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right" width="266" style="font-size:12px"><span
+                    style="letter-spacing:5px;font-size:12px">*邮箱地址：</td>
+            <td width="840"><input name="email" id="email" class="input" type="text" maxlength="50"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*公司名称:</span></td>
+            <td style="text-align:left;"><input name="compayname" id="compayname" class="input" type="text"
+                                                maxlength="50"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*姓名：</span></td>
+            <td style="text-align:left;"><input name="realname" id="realname" class="input" type="text" maxlength="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*职位：</span></td>
+            <td style="text-align:left;"><input name="position" id="position" class="input" type="text" maxlength="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*公司地址：</span></td>
+            <td style="text-align:left;"><input name="address" id="address" class="input" type="text" maxlength="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*邮编号码：</span></td>
+            <td style="text-align:left;"><input name="zip" id="zip" class="input" type="text" maxlength="50"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*城市：</span></td>
+            <td style="text-align:left;"><input name="city" id="city" class="input" type="text" maxlength="50"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*省份：</span></td>
+            <td style="text-align:left;"><input name="provinces" id="provinces" class="input" type="text"
+                                                maxlength="50"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*国家：</span></td>
+            <td style="text-align:left;"><input name="country" id="country" class="input" type="text" maxlength="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">*联系方式：</span></td>
+            <td style="text-align:left;"><input name="phone" id="phone" class="input" type="text" maxlength="50"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">传真：</span></td>
+            <td style="text-align:left;"><input name="fax" id="fax" class="input" type="text" maxlength="50"/>&nbsp;&nbsp;个人传真号码
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">QQ：</span></td>
+            <td style="text-align:left;"><input name="qq" id="qq" class="input" type="text" maxlength="50"/>&nbsp;&nbsp;QQ账户
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">MSN：</span></td>
+            <td style="text-align:left;"><input name="msn" id="msn" class="input" type="text" maxlength="50"/>&nbsp;&nbsp;MSN账户
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">Skype：</span></td>
+            <td style="text-align:left;"><input name="skype" id="skype" class="input" type="text" maxlength="50"/>&nbsp;&nbsp;Skype账号
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><span style="letter-spacing:5px;font-size:12px">网址：</span></td>
+            <td style="text-align:left;"><input name="website" id="website" class="input" type="text" maxlength="10"/>&nbsp;&nbsp;您公司的网址
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"></td>
+            <td style="text-align:left;">*你目前的活动和操作：<br><br><textarea name="activities" class="input" cols="60" rows="6" id="planning1"
+                                                   style="border:1px  solid #7c7c7e;"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"></td>
+            <td style="text-align:left;">*请具体说明你的计划：<br><br><textarea name="planning" class="input" cols="60" rows="6" id="planning2"
+                                                   style="border:1px  solid #7c7c7e;"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"></td>
+            <td style="text-align:left;">*你项目的具体信息：<br><br><textarea name="project" class="input" cols="60" rows="6" id="planning3"
+                                                   style="border:1px  solid #7c7c7e;"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"></td>
+            <td style="text-align:left;">附件：<br><br><input type="file" name='attachment' class="input" style="width:500px"/><br>
+                支持文件类型: doc,pdf,txt,gif,jpg,jpeg,png
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td style="text-align:left">
+                <img src="Webroot/Tpl/default/images/submit.jpg" border="0" onclick="javascript:checkSubmit();"/>
+
+            </td>
+        </tr>
+    </table>
+</div>
+</form>
+<div class="bottom" style="width:971px;margin:15px auto 0;">
+    <div style="float:right; margin-right:10px"><a href="" target="_blank">意大利时尚批发</a><span>|</span><a href=""
+                                                                                                       target="_blank">国际高端品牌代理</a><span>|</span><a
+            href="" target="_blank">奢侈品批发</a><span>|</span><a href="" target="_blank">友情链接</a></div>
+</div>
+</div>
+</body>
+<script>
+    //(function (){
+
+    function checkSubmit() {
+
+        var form = document.getElementById('form1');
+        var inputValues = form.getElementsByTagName('input');
+        var userName = inputValues[0].value;
+        var password = inputValues[1].value;
+        var repassword = inputValues[2].value;
+        var val = inputValues[3].value;
+        var compayname = inputValues[4].value;
+        var realname = inputValues[5].value;
+        var position = inputValues[6].value;
+        var address = inputValues[7].value;
+        var zip = inputValues[8].value;
+        var city = inputValues[9].value;
+        var provinces = inputValues[10].value;
+        var country = inputValues[11].value;
+        var phone = inputValues[12].value;
+
+
+        var planning1 = document.getElementById('planning1').value;
+        var planning2 = document.getElementById('planning2').value;
+        var planning3 = document.getElementById('planning3').value;
+        if (userName.length == 0) {
+            alert('用户名不为空！');
+            return '';
+        } else if (password.length == 0) {
+            alert('密码不为空！');
+            return '';
+
+        } else if (password.length <= 6) {
+            alert('密码应不小于6位！');
+            return '';
+
+        } else if (password != repassword) {
+            alert('两次密码不一致！');
+            return '';
+        } else if (!val || !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(val)) {
+            alert('邮箱地址格式错误！');
+            return'';
+        } else if (compayname.length == 0) {
+            alert('公司名称不为空！');
+            return'';
+        } else if (realname.length == 0) {
+            alert('姓名不为空！');
+            return'';
+        } else if (position.length == 0) {
+            alert('职位不为空！');
+            return'';
+        } else if (address.length == 0) {
+            alert('公司地址不为空！');
+            return'';
+        } else if (zip.length == 0) {
+            alert('邮政号码不为空！');
+            return'';
+        } else if (city.length == 0) {
+            alert('城市不为空！');
+            return'';
+        } else if (provinces.length == 0) {
+            alert('省份不为空！');
+            return'';
+        } else if (country.length == 0) {
+            alert('国家不为空！');
+            return'';
+        } else if (phone.length == 0) {
+            alert('联系方式不为空！');
+            return'';
+        } else if (planning1.length == 0) {
+            alert('你目前的活动和操作不为空！');
+            return'';
+        } else if (planning2.length == 0) {
+            alert('请具体说明你的计划不为空！');
+            return'';
+        } else if (planning3.length == 0) {
+            alert('你项目的具体信息不为空！');
+            return'';
+        } else {
+            alert("注册成功，我们将尽快联系您");
+            form.submit();
+        }
+
+
+    }
+
+    //})();
+
+</script>
+</html>

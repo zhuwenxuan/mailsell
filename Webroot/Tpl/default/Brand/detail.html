@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$brand.name}</title>
+<link rel="shortcut icon" href="/logo.ico" type="image/x-icon" />
+<meta name="keywords" content="专业奢侈品批发,设计公司,奢侈品牌批发,意大利时尚批发,国际时尚品牌代理加盟">
+<meta name="description" content="专业奢侈品批发,设计公司,奢侈品牌批发,意大利时尚批发,国际时尚品牌代理加盟">
+<link rel="stylesheet" type="text/css" href="Webroot/Tpl/default/css/branddetail.css" />
+<script type="text/javascript" src="Webroot/Tpl/default/js/ajax.js"></script>
+</head><body>
+<div class="wrap">
+    <div class="head">
+    <div class="lang">
+       <img src="Webroot/Tpl/default/images/eng.jpg"  style="cursor:pointer;" />
+    <img  src="Webroot/Tpl/default/images/china.jpg" style="cursor:pointer;" />
+    </div>
+        <div class="logo">
+            <img src="Webroot/Tpl/default/images/logo.png">
+        </div>
+<div class="urllink"><ul><li><img src="Webroot/Tpl/default/images/youjian.png" border="0" /><a href="index.php">首 页</a></li>
+<li><img src="Webroot/Tpl/default/images/youjian.png" border="0" /><a href="index.php?s=/Index/detail">关于我们</a></li>
+<li><img src="Webroot/Tpl/default/images/youjian.png" border="0" /><a href="index.php?s=/Index/detail">业务介绍</a></li>
+<li><img src="Webroot/Tpl/default/images/youjian.png" border="0" /><a href="index.php?s=/Index/detail">联系我们</a></li></ul></div>
+    </div>
+    <div id="content">
+    
+  <div id="left">
+ {$brand.intro}
+  </div>
+  
+  <div id="right">
+ <volist name="indexs" id="index">
+<ul><li style="font-size:14px;">{$index}<li>
+	<volist name='brandgroup["$index"]' id="data">
+<li><a href="__APP__/Brand/detail/id/{$data.id}">{$data.name}</a></li>
+</volist>
+<li style="margin-top:20px;"></li>
+</ul>
+</volist>
+  </div>
+  <div class="clear"></div>
+<div id="foot">
+	      <div class="lb">
+		     <p style="font-size:20px; margin:20px 0 0 0">品牌信息<span style="font-size:12px; margin-left:15px">了解来自意大利和法国的品牌</span></p>
+			 <p style="font-size:12px; margin:22px 0 0 0"><img src="Webroot/Tpl/default/images/italy.jpg" width="37" height="25"/><a href="index.php?s=/Brand/index" style="color: #fff;">&nbsp;&nbsp;MADE IN ITALY</a></p>
+			 <p style="font-size:12px; margin:3px 0 0 0"><img src="Webroot/Tpl/default/images/france.jpg" width="37" height="25"/><a href="__APP__/Brand/index" style="color: #fff;">&nbsp;&nbsp;MADE IN ITALY</a></p>
+		  </div>
+		  <div class="rb">
+                <p style="font-size:20px; margin:20px 0 0 5px; float:left">资讯订阅</p>
+
+                <p style="font-size:12px; float:right; text-indent:0; margin-top:22px; width:184px; margin-right:74px">
+                    提供专为时尚界以及奢侈品行业<br/>人士服务的电子报</p>
+
+                <div class="clear"></div>
+
+                <form action="__APP__/Index/insertMail" method="post" id="subMail">
+                    <input type="text" id="checkmail" name="mail" value="邮箱地址" onfocus="this.value=''"
+                           style="margin-left:130px; color:#999; margin-top:10px; width:164px"/>
+                    <span><a href="javascript:checkform();" style="color:#fff;">提交</a></span>
+                </form>
+            </div>
+	  </div>
+    
+</div>
+
+   
+      <div class="bottom">
+      <div style="float:right; margin-right:10px"><a href="" target="_blank">意大利时尚批发</a><span>|</span><a href="" target="_blank">国际高端品牌代理</a><span>|</span><a href="" target="_blank">奢侈品批发</a><span>|</span><a href="" target="_blank">友情链接</a></div>
+  </div>
+</div>
+    </div>
+<script type="text/javascript">
+	var $ = function(id){
+        return document.getElementById(id);
+    };
+	function checkform(){
+		var val= document.getElementById('checkmail');
+        if(!val.value||!/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(val.value)){
+            alert('邮箱地址格式错误！');
+        }else {
+            var form = document.getElementById('subMail');
+            T.ajax.request(form.action,{
+                data:"adress="+$("checkmail").value,
+                onsuccess:function(xhr,msg){
+                    if(msg == "-1"){
+                        alert("订阅失败");
+                    }else{
+                        alert('订阅成功！');
+                    }
+                }
+            });
+	   	}
+	}
+	</script>
+</body>
+</html>

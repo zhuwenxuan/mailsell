@@ -1,0 +1,73 @@
+<script type="text/javascript" src="Webroot/Tpl/default/js/ajax.js"></script>
+<script type="text/javascript">
+	function message() {
+		var val = document.getElementById('email');
+		if (!val.value
+				|| !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/
+						.test(val.value)) {
+			alert('邮箱地址格式错误！');
+		} else {
+			var form = document.getElementById('messageForm');
+			//form.submit();
+			baidu.ajax.form(form, {
+				async : true,
+				onsuccess : function(xhr, msg) {
+					if (msg == 1) {
+						alert("留言成功！");
+					} else {
+						alert("留言失败！");
+					}
+				},
+				onfailure : function(xhr) {
+					alert('请求失败！');
+				}
+			});
+		}
+	}
+</script>
+<form action="__APP__/Message/insert" method="post" id="messageForm"
+	enctype="multipart/form-data">
+	<table>
+		<tr>
+			<td>姓名：</td>
+			<td><input name="name" />
+			</td>
+		</tr>
+		<tr>
+			<td>电话：</td>
+			<td><input name="telephone" />
+			</td>
+		</tr>
+		<tr>
+			<td>地址：</td>
+			<td><input name="address" />
+			</td>
+		</tr>
+		<tr>
+			<td>省份：</td>
+			<td><input name="province" />
+			</td>
+		</tr>
+		<tr>
+			<td>城市：</td>
+			<td><input name="city" />
+			</td>
+		</tr>
+		<tr>
+			<td>邮件：</td>
+			<td><input name="email" id="email" />
+			</td>
+		</tr>
+		<tr>
+			<td>内容：</td>
+			<td><textarea  onpropertychange="if(value.length>100) value=value.substr(0,100)"  name="intro" cols="55" rows="6"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><img src="Webroot/Tpl/default/images/submit.jpg"
+				onclick="javascript:message();" /></td>
+		</tr>
+
+	</table>
+</form>

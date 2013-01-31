@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="__TMPL__/css/admin.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="__TMPL__/js/ajax.js"></script>
+</HEAD>
+<script type="text/javascript">
+function toggle2(id){
+	var action ="__APP__/Member/toggle2/";
+    T.ajax.request(action, {
+    	data:"id=" + id,
+        onsuccess:function (xhr, msg) {
+        	alert("操作成功");
+   			location.reload(true);
+        }
+    });
+}
+function toggle(id){
+	var action ="__APP__/Member/toggle/";
+    T.ajax.request(action, {
+    	data:"id=" + id,
+        onsuccess:function (xhr, msg) {
+        	alert("操作成功");
+   			location.reload(true);
+        }
+    });
+}
+</script>
+<BODY>
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<TR height=28>
+			<TD background=__TMPL__/images/title_bg1.jpg>当前位置:</TD>
+		</TR>
+		<TR>
+			<TD bgColor=#b1ceef height=1></TD>
+		</TR>
+		<TR height=20>
+			<TD background=__TMPL__/images/shadow_bg.jpg></TD>
+		</TR>
+	</TABLE>
+
+	<table width="100%" border="1px">
+		<tr>
+			<td width="20%">姓名</td>
+			<td width="10%">订阅状态</td>
+			<td width="10%">用户状态</td>
+			<td width="30%">注册时间</td>
+			<td width="30%">操作</td>
+		</tr>
+		<volist name="list" id="member">
+		<tr>
+			<td>{$member.name}</td>
+			<td><if condition="$member['ismail'] eq 1"> 可用<else />已退订</if></td>
+			<td><if condition="$member['status'] eq 1"> 可用<else />禁用</if></td>
+			<td>{$member.createtime|substr=0,10}</td>
+			<td><a href="__APP__/Member/delete/id/{$member.id}">删除</a>&nbsp;&nbsp;<a
+				href="__APP__/Member/toInsert/id/{$member.id}">修改</a>&nbsp;&nbsp;<a
+				href="javascript:toggle2({$member.id});"><if condition="$member['ismail'] eq 1"> 退订<else />取消退订</if></a>&nbsp;&nbsp;<a
+				href="javascript:toggle({$member.id});"><if condition="$member['status'] eq 1"> 禁用<else />恢复</if></a>&nbsp;&nbsp;<a href="__APP__/Member/reset111/id/{$member.id}">重置密码</a>
+			</td>
+		</tr>
+		</volist>
+	</table>
+	{$page}
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+.clearfix, .container {display:block;}
+.clear {clear:both;}
+
+.page
+{
+	margin:0px auto;
+	width:960px;
+}
+
+.header
+{
+	height:122px;
+	background-image:url(../images/header-bg.png);
+	background-position:center;
+}
+
+
+.logo
+{
+	float:left;
+	padding-left:93px;
+	padding-top:28px;
+	
+}
+
+.choose-lang
+{
+	padding-top:10px;
+	padding-right:36px;
+	float:right;
+}
+
+#lang-cn
+{
+	display:inline-block;
+    margin-right:10px;
+	width:30px;
+	height:23px;
+	background-image:url(../images/zhongguoguoqi.png);
+}
+
+#lang-en
+{
+	display:inline-block;
+	width:30px;
+	height:23px;
+	background-image:url(../images/yingguoguoqi.png);
+}
+
+
+
+.footer
+{
+	margin-top:15px;
+	background-color:#FFF;
+    text-align:right;
+    padding: 8px 25px;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    font-weight:bold;
+}
+.footer a{
+    text-decoration:none;
+    color:#8b8a8a;
+}
+.footer span{
+    font-weight: bold;
+    color:#8B8A8A;
+    display: inline-block;
+    margin-right:4px;
+}

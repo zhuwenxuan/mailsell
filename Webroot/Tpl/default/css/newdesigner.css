@@ -1,0 +1,25 @@
+body{font-family: 黑体,simhei;}
+.wrap{min-height: 100%;height: 100%;margin: 0 auto;position: relative;z-index: 1;}
+.bg{overflow: hidden;position: fixed;width: 1280px;height:1500px;}
+.container{margin: 0px auto;width: 955px;z-index: 10;position: relative;z-index: 10;}
+.designer{padding-top: 30px;width:955px;}
+.floatleft{float:left;}
+.floatright{float:right;}
+.right-side{float:right; background-color:white;width:711px;}
+.right-content{ margin-bottom:50px;}
+.designerlogo{padding:30px 0px 0px 40px;}
+.designerlogotext{font-family:"黑体";font-weight:900;font-size:16px; }
+.designerdetail{ padding:30px 42px 0px 42px;margin-top: -15px;} 
+.business{ height:22px; width:270px; color:white; font:"黑体" 14px;padding-top:3px; font-weight:bold; background-color:rgb(145,145,145); text-align:center; float:right;margin-top:50px;margin-right:60px;}
+.clear{clear:both;}
+.turnimg{padding:50px 0px 0px 42px;text-align:center;}
+#imgs{float:left; display:inline;width:568px;overflow:hidden;}
+#imgs img{display:block;float:left;margin:0;paddng:0;border:0px;}
+#innerimgs{float: left;
+width: 900%;}
+#imgturn1{float: left; }
+#imgturn2{float: left;}
+.jiantou{margin-top:100px;cursor:pointer; float:left}
+.designerdetail p{font-size:12px; margin-top:20px;line-height:22px;}
+.w305{width:305px;}
+.rightbar{height:22px; width:270px; color:white; font:"黑体" 14px;padding-top:3px; font-weight:bold; background-color:rgb(145,145,145); text-align:center; }

@@ -1,0 +1,62 @@
+/* CSS Document */
+html{overflow-x:auto;overflow-y:auto;}
+body{margin:0px;padding:0px;font-size:12px;text-align:center;font-family:"΢���ź�";  background-color:#000;word-wrap:break-word;}
+body div{margin-right:auto;margin-left:auto}
+div{padding:0;height:auto;text-align:left}
+img,a img{border:0px;margin:0px;padding:0px}
+input,select,textarea{font-size:12px}
+p,dl,dt,dd,ol,ul,li{margin:0px;padding:0px;height:auto;text-align:left}
+.ul li,.ul li p,.dl dt{white-space:nowrap;overflow:hidden}
+ol,ul,li{list-style:none}
+form,input,select,textarea,checkbox,h1,h2,h3,h4,h5,h6{margin:0px;padding:0px}
+label,var,cite,span{font-style:normal}
+br{font-size:12px}
+h1{font-size:16px}
+h2,h4{font-size:14px}
+h5,h6{font-size:12px}
+a{color:#636363;text-decoration:none}
+a:hover{text-decoration:underline}
+.l{float:left}
+.r{float:right}
+.clear{clear:both;height:0;min-height: 0}
+
+body{
+    height: 100%;
+    width: 100%;
+	height:auto;
+}
+.wrap{
+    width:971px;
+    margin: 0 auto;
+	background-color:#242424;
+}
+.head{
+    background: url(../images/top_head_bg.jpg) repeat-x;
+    height:122px;
+}
+.logo{
+    padding: 28px 0 20px 93px;
+}
+.urllink{float:right; margin-right:35px;margin-top: -20px;}
+.urllink ul{list-style-type:none;}
+.urllink img { vertical-align:middle;}
+.urllink a { vertical-align:middle;font-family:"黑体";}
+.urllink li{float:left; margin-right:15px; padding:0 5px; font-weight:bold;font-size:13px; vertical-align:middle;}
+.urllink li a:hover{color:#3e8eac;}
+.lang img{ float:right; margin-right:18px; margin-top:10px;}
+#content{ margin-top:20px;height:auto; background:#FFF;padding-bottom: 60px;}
+
+#left{float:left;height:auto; width:640px;color: #777; padding: 10px 5px 10px 15px; line-height:25px;font-size:12px;}
+#right{float:right; margin:5px 0 auto auto;background:url(../images/detailright.png) repeat-y; width:279px; height:auto; }
+#right ul li{ list-style-type:none; line-height:18px; margin-left:5px;}
+#foot{height:150px; width:790px; background:url(../images/bg_gray.jpg) 0 0 repeat-y;margin-left: 117px; margin-top:20px;}
+ #foot .lb{float:left; width:350px;margin-left: 38px;}
+ #foot .lb p{color:#fff; font-family:"微软雅黑"; font-weight:normal}
+ #foot .rb{float:right; width:388px}
+ #foot .rb p{color:#fff; font-family:"微软雅黑"; font-weight:normal}
+
+
+.bottom{ margin-left:0;margin-top:12px; height:40px; background:url(../images/foot_bg.jpg) 0 0 repeat-x}
+.bottom a{font-family:"微软雅黑"; font-size:12px; color:#8b8a8a; line-height:40px; font-weight:bold }
+.bottom a:hover{text-decoration:none;}
+.bottom span{color:#8b8a8a;display:inline-block;margin:0 5px;font-weight:bold;}

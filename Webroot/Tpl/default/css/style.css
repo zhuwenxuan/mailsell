@@ -1,0 +1,134 @@
+/* CSS Document */
+html{overflow-x:auto;overflow-y:scroll}
+body{margin:0px;padding:0px;font-size:12px;text-align:center;font-family:"΢���ź�";  background-color:#000;overflow:hidden}
+body div{margin-right:auto;margin-left:auto}
+div{padding:0;height:auto;text-align:left}
+img,a img{border:0px;margin:0px;padding:0px}
+input,select,textarea{font-size:12px}
+p,dl,dt,dd,ol,ul,li{margin:0px;padding:0px;height:auto;text-align:left}
+.ul li,.ul li p,.dl dt{white-space:nowrap;overflow:hidden}
+ol,ul,li{list-style:none}
+form,input,select,textarea,checkbox,h1,h2,h3,h4,h5,h6{margin:0px;padding:0px}
+label,var,cite,span{font-style:normal}
+br{font-size:12px}
+h1{font-size:16px}
+h2,h4{font-size:14px}
+h5,h6{font-size:12px}
+
+.l{float:left}
+.r{float:right}
+.clear{clear:both;height:0;min-height: 0}
+
+.logo{
+    padding: 44px 0 20px 50px;
+}
+.container{
+	padding: 0;
+	width: 100%;
+	min-height: 100%;
+	height: auto!important;
+	height: 100%;
+	overflow: hidden;
+	top: 0;
+	font: normal normal normal 11px/15px Helvetica,Arial,Verdana sans-serif;
+    color: #AAA;
+}
+
+
+.rcontent{
+    z-index: 10;
+    width:335px;
+    height: 200px;
+    right: 0;
+    top:0;
+    position: absolute;
+    margin: 80px 50px 10px 4px;
+    color: #878787;
+    font-size: 16px;
+}
+.rcontent .lang{
+    float:left; 
+	margin-left:75px;
+}
+.rcontent a.en{
+    display: inline-block;
+    width: 78px;
+	font-size:14px; 
+	color:#83725e;
+	font-family:"微软雅黑"; 
+	height: 16px;
+	padding: 8px 5px;
+	color:#cd7d28;
+	text-decoration:none;
+	margin-right: 20px;
+	cursor:pointer;
+}
+.rcontent .top{ 
+margin-top:54px;
+margin-left:20px;
+    
+}
+.rcontent .middle{
+    margin: 66px 0 0 94px;
+   }
+.rcontent .middle .second{
+    margin-top: 45px;
+}
+.rcontent .middle span.wz{
+    display:block; 
+	color:#d39454; 
+	margin-left:30px; 
+	font-size:18px; 
+	font-family:"微软雅黑";
+	margin-top:10px;
+}
+#header{
+    position: absolute;
+	left: 39px;
+	margin: 0;
+	width: 95%;
+	min-width: 1117px;
+	z-index: 3;
+    height: 80px;
+}
+#logo{
+    position: absolute;
+	left: 0;
+	top: 50px;
+	height: 46px;
+	line-height:46px;
+    width: 261px;
+    color: #976415;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 36px;
+    word-spacing: 10px;
+}
+#logo a{
+    display: block;
+	width: 288px;
+	height: 21px;
+}
+#viewport{
+    overflow: hidden;
+    position: fixed;
+}
+#viewport img{
+    position: absolute;
+	height: 100%;
+	width: 100%;
+}
+#footernav{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	background: black;
+	padding: 5px 0 0;
+	height: 20px;
+	color: #666;
+	font-size: 10px;
+	line-height: 20px;
+	text-align: center;
+}
